@@ -1,0 +1,45 @@
+html, body, *, a, ul, li {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	list-style-type: none;
+}
+
+* {
+	font-family: 'Roboto', sans‐serif;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+}
+
+#container form {
+	width: 350px;
+	height: 500px;
+	margin: 250px auto;
+}
+
+#container form input {
+	width: 350px;
+	height: 30px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#container form fieldset {
+	width: 240px;
+	height: 40px;
+	margin: 0 auto;
+	border: 0px;
+}
+
+#container form fieldset button {
+	width: 100px;
+	height: 30px;
+	float: left;
+	margin: 0 auto;
+	margin: 10px;
+
+}
