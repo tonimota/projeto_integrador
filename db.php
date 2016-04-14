@@ -7,12 +7,8 @@
 
   	$dsn = "Driver={SQL Server};Server=$server;Port=1433;Database=$db;";
 
-  	if (odbc_connect($dsn, $user, $password)) {
-  		
-  	}else{
+  	if (!$conn = odbc_connect($dsn, $user, $password)) {
   		echo 'erro ao conectar com o banco de dados';
   	}
-
-
 
 ?>

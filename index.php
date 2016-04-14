@@ -1,12 +1,25 @@
 <?php
-
+	session_start();
+	$errMsg = '';
 	include 'db.php';
 	if (isset($_POST['name']) && isset($_POST['password'])) {
 		if ($_POST['name'] != '' && $_POST['password'] != '') {
 			$username = $_POST['name'];
 			$password = $_POST['password'];
-			print_r($username.'<br>'.$password);
 
+			//CONSULTA DB
+			$stmt = odbc_prepare($conn, "select * from Professor where email = ? and senha = HASHBYTES('SHA1', '$password')");
+
+		    odbc_execute($stmt, array($username));
+		    echo odbc_errormsg($conn);
+		   
+		    $rows = odbc_num_rows($stmt);
+		    
+		   	if ($rows > 0) {
+		   		$_SESSION['codProfessor'] = $username;
+		   	}else{
+		   		$errMsg = 'Usuario ou senha incorretos';
+		   	}
 		}else{
 			$errMsg = 'Usuario ou senha incorretos';
 		}
