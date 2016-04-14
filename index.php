@@ -1,7 +1,6 @@
 <?php
 
-	// include 'db.php';
-	// var_dump($connect);
+	include 'db.php';
 	if (isset($_POST['name']) && isset($_POST['password'])) {
 		if ($_POST['name'] != '' && $_POST['password'] != '') {
 			$username = $_POST['name'];
@@ -12,8 +11,7 @@
 			$errMsg = 'Usuario ou senha incorretos';
 		}
 	}
-
-
+	
 	
 ?>
 
