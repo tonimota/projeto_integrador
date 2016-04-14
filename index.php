@@ -1,3 +1,22 @@
+<?php
+
+	// include 'db.php';
+	// var_dump($connect);
+	if (isset($_POST['name']) && isset($_POST['password'])) {
+		if ($_POST['name'] != '' && $_POST['password'] != '') {
+			$username = $_POST['name'];
+			$password = $_POST['password'];
+			print_r($username.'<br>'.$password);
+
+		}else{
+			$errMsg = 'Usuario ou senha incorretos';
+		}
+	}
+
+
+	
+?>
+
 <html>
 <head>
 	<title>Login</title>
@@ -7,12 +26,13 @@
 </head>
 <body>
 <div id="container">
-	<form method="post" action="login.php">
+	<form method="post" action='' name='frmLogin'>
 		<div id="thumb">
 			<img src="img/default_large.png">			
 		</div>
-		<input type="text" name="name" value="Nome">
-		<input type="password" name="password" value="Senha">
+		<input type="text" name="name" id="name" placeholder="Login">
+		<input type="password" name="password" id="password" placeholder="Senha">
+		<p><?=$errMsg?></p>
 		<fieldset>
 			<button class="myButton" type="submit" name="btn_send"> Entrar </button> 
 		</fieldset>
