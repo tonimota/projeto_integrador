@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if ($_SESSION['showMenu'] != true) {
+		echo 'sem menu';
+		
+	}
+?>
 <html>
 <head>
 	<title>Login</title>
@@ -13,7 +20,7 @@
 			<li><a href="">Inicio</a></li>
 			<li><a href="">Cadastrar</a></li>
 			<li><a href="">Usuários</a></li>
-			<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href=""> Sair</a></li>
+			<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
 		</ul>
 	</nav>
 </header>
