@@ -2,9 +2,7 @@
 	session_start();
 	if (!isset($_SESSION['showMenu'])) {
 		header('Location: index.php');
-	}elseif ($_SESSION['showMenu'] != true) {
-		echo 'sem menu';
-	}else{
+	}
 ?>
 
 	<html>
@@ -17,6 +15,7 @@
 	</head>
 	<body>
 	<header>
+		<?php if ($_SESSION['showMenu'] == true) {?>
 		<nav>
 			<ul>
 				<li><a href="">Inicio</a></li>
@@ -25,6 +24,9 @@
 				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
 			</ul>
 		</nav>
+		<?php }else{
+			echo 'sem menu';
+		}?>
 	</header>
 
 
