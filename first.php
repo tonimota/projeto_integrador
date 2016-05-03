@@ -50,15 +50,12 @@
 				<?php
 					while($area = odbc_fetch_array($stmt)){
 						echo ("<tr><td>".$area['nome']."</td>"."<td>".$area['email']."</td>"."<td>".$area['tipo']."</td>"."</tr>");
-					}
-					
+					}					
 				?>
 				</table>
 			</div>
 		</div>
-		<footer>
-			
+		<footer>			
 		</footer>
-
 	</body>
 	</html>
