@@ -13,7 +13,6 @@
     echo odbc_errormsg($conn);
    	//print_r(odbc_fetch_array($stmt));
    	$result = odbc_fetch_array($stmt);
-
     $rows = odbc_num_rows($stmt);
 ?>
 
@@ -44,34 +43,22 @@
 			<div class='table-holder'>
 				<table>
 					<tr>
-						<th>Cod. Usuario</th>
 						<th>Nome</th>
 						<th>E-mail</th>
-						<th>Id Senac</th>
 						<th>Tipo</th>
-					</tr>
-
-					<?php foreach ($result as $key=>$value) {
-						print_r($value);
-						print_r($key);
-
-						?>	
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<?php }?>
+				<?php
+					while($area = odbc_fetch_array($stmt)){
+						echo ("<tr><td>".$area['nome']."</td>"."<td>".$area['email']."</td>"."<td>".$area['tipo']."</td>"."</tr>");
+					}
+					
+				?>
 				</table>
 			</div>
 		</div>
-
 		<footer>
 			
 		</footer>
 
 	</body>
 	</html>
-<?php } ?>

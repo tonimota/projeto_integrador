@@ -109,3 +109,7 @@ nav ul li {
 	float: left;
 	padding: 15px;
 }
+#wrapper {
+	position: relative;
+	top: 50px;
+}
