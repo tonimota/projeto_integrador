@@ -113,3 +113,38 @@ nav ul li {
 	position: relative;
 	top: 50px;
 }
+#new_user {
+	position:relative;
+	top:50px;
+}
+
+#new_user form{
+	width:500px;
+	margin:0 auto;
+	margin-top:100px;
+}
+#new_user form > input {
+	display: block;
+	height: 40px;
+	width:460px;
+	text-align:center;
+	margin:20px;
+}
+#new_user form button {
+	width:100px;
+	height:25px;
+	margin-left:200px;
+	background-color:#fff;
+	color:000;
+	border:0;
+	outline:1px solid #ccc;
+	transition: all 0.5s;
+}
+#new_user form button:hover {
+	-webkit-box-shadow: 8px 7px 2px -3px rgba(0,0,0,0.75);
+	-moz-box-shadow: 8px 7px 2px -3px rgba(0,0,0,0.75);
+	box-shadow: 8px 7px 2px -3px rgba(0,0,0,0.75);
+	background-color: #89bacc;
+	outline:0px;
+	color:#fff;
+}

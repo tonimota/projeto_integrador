@@ -33,6 +33,7 @@
 					<li><a href="">Cadastrar</a></li>
 					<li><a href="">Usuários</a></li>
 					<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
+					<li><a href="new_user.php">Inserir Usuário</a></li>
 				</ul>
 			</nav>
 			<?php }else{
@@ -49,7 +50,7 @@
 					<tr>
 				<?php
 					while($area = odbc_fetch_array($stmt)){
-						echo ("<tr><td>".$area['nome']."</td>"."<td>".$area['email']."</td>"."<td>".$area['tipo']."</td>"."</tr>");
+						echo ("<tr><td>".$area['nome']."</td>"."<td>".$area['email']."</td>"."<td>".$area['tipo']."</td>"."<td>"."<input type='submit' value='Alterar'>"."<td>"."<p> <a href='#'>Excluir</a></p>"."</td>"."</tr>");
 					}					
 				?>
 				</table>
