@@ -148,3 +148,14 @@ nav ul li {
 	outline:0px;
 	color:#fff;
 }
+#new_user form fieldset {
+	margin:0 auto;
+	margin:20px;
+	width:460px;
+}
+#new_user form fieldset input:nth-child(1) {
+	margin-left:200px;
+}
+#new_user form p {
+	text-align:center;
+}
