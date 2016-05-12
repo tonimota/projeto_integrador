@@ -15,7 +15,6 @@
    	$result = odbc_fetch_array($stmt);
     $rows = odbc_num_rows($stmt);
 ?>
-
 <html>
 <head>
 	<title>Login</title>
@@ -39,25 +38,30 @@
 			echo 'sem menu';
 		}?>
 	</header>
-	<div id='wrapper'>
-		<div class='table-holder'>
-			<table>
-				<tr>
-					<th>Nome</th>
-					<th>E-mail</th>
-					<th>Tipo</th>
-					<th>Alterar</th>
-					<th>Excluir</th>
-				<tr>
-			<?php
-				while($area = odbc_fetch_array($stmt)){
-					echo ("<tr><td>".$area['nome']."</td>"."<td>".$area['email']."</td>"."<td>".$area['tipo']."</td>"."<td>"."<a href='update.php'><button type='submit' class='my-button2' value='Alterar'></button></a>"."<td>"."<p> <a href='#'>Excluir</a></p>"."</td>"."</tr>");
-				}					
-			?>
-			</table>
-		</div>
+<div id='up-form'>
+	<div id="element_to_pop_up">
+	<a class="b-close">x</a>
+		<form id="update_user">
+			<h3>Preencha os campos</h3>
+			<ul>
+				<li>
+					<div class="icon-form">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					</div>
+					<input type="text" placeholder="Nome"></input>
+				</li>
+				<li>
+					<div class="icon-form">
+						<i class="fa fa fa-envelope" aria-hidden="true"></i>
+					</div>
+					<input type="email" placeholder="E-mail"></input>
+				</li>
+				<li id="button-contact-form">
+					<button class="submit" type="submit">Enviar</button>
+				</li>			
+			</ul>
+		</form>
 	</div>
-	<footer>			
-	</footer>
+</div>
 </body>
 </html>

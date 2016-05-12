@@ -169,18 +169,200 @@ nav ul li {
 .table-holder table {
 	width: 100%;
 	height: auto;
-}
-
-table,tbody,tr, td { border: none; }  
-
+	font-size: 0;
+	border-spacing: 0;
+} 
 .table-holder table th {
 	line-height: 50px;
 	text-align: left;
 	background-color: rgba(0, 187, 212, 0.2);
 	border: 0;
-
+	font-size: 14px;
 
 }
 .table-holder table td {
 	border: 0;
+	font-size: 14px;
+}
+
+/* New User */
+
+#up-form {
+	position: relative;
+	top: 51px;
+	width: 100%;
+	height: 100%;
+}
+
+#element_to_pop_up { 
+    background-color: #fff;
+    color:#000; 
+    padding:20px;
+    width:400px;
+    height: 180px;
+    margin: 0 auto;
+    outline: 1px solid #ccc;
+    margin-top: 50px;
+}
+.b-close{
+    cursor:pointer;
+    position:absolute;
+    right:10px;
+    top:5px;
+}
+#element_to_pop_up h3 {
+	text-align: center;
+	color: rgb(56, 89, 101);
+	margin-bottom: 20px;
+}
+#element_to_pop_up form {
+	width: 350px;
+	height: 220px;
+	margin: 0 auto;
+}
+#element_to_pop_up form ul {
+	width: 350px;
+	padding-left: 0;
+}
+#element_to_pop_up li{
+    position:relative;
+    width: 350px;
+    height: 50px;
+    float: left;
+    margin: 0 auto;
+}
+#element_to_pop_up li .icon-form {
+	width: 45px;
+	height: 40px;
+	float: left;
+	line-height: 40px;
+	background-color: rgba(56, 89, 101, 0.8);
+}
+#element_to_pop_up li .icon-form i {
+	width: 40px;
+	line-height: 40px;
+	color: #fff;
+}
+#element_to_pop_up li .icon-form i:before {
+	width: 20px;
+	margin-left: 15px;
+}
+#element_to_pop_up #textarea {
+	width: 310px;
+	height: 100px;
+	margin-bottom: 30px;
+}
+#element_to_pop_up #textarea .icon-form-text {
+	width: 45px;
+	height: 100px;
+	float: left;
+	line-height: 40px;
+	background-color: rgba(105,190,223,0.2);
+}
+#element_to_pop_up #textarea .icon-form-text i {
+	width: 40px;
+	line-height: 40px;
+}
+#element_to_pop_up #textarea .icon-form-text i:before {
+	width: 20px;
+	margin-left: 15px;
+}
+#element_to_pop_up #textarea textarea {
+	width: 260px;
+	height: 100px;
+	float: left;
+}
+.required_notification {
+    color:#d45252; 
+    margin:5px 0 0 0; 
+    display:inline;
+    float:right;
+}
+#element_to_pop_up input, #element_to_pop_up textarea {
+    height:40px; 
+    width:300px; 
+    padding:5px 8px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-family: 'Ubuntu';
+    font-size: 14px;
+    font-weight: 400;
+    float: left;
+    color: #999;
+    border:1px solid #e7e7e7;
+    box-shadow: 0px;
+    outline: 0px;
+}
+#element_to_pop_up input:focus, #element_to_pop_up textarea:focus {
+    box-shadow: 0;
+    background-color: rgba(133,199,225,0.2);
+    border:0;
+    border-radius: 0;
+}
+#element_to_pop_up ::-webkit-input-placeholder {
+   color: #999;
+   font: 14px verdana, arial, sans-serif;
+}
+
+#element_to_pop_up :-moz-placeholder {
+   color: #999;
+   font: 14px verdana, arial, sans-serif;
+}
+
+#element_to_pop_up ::-moz-placeholder {
+   color: #999;  
+   font: 14px verdana, arial, sans-serif;
+}
+
+#element_to_pop_up :-ms-input-placeholder {  
+   color: #999;  
+   font: 14px verdana, arial, sans-serif;
+}
+
+#element_to_pop_up button {margin-left:156px;}
+
+li#button-contact-form {
+	width: 320px;
+	height: 150px;
+}
+li#button-contact-form input[type=checkbox] {
+	margin-top: 15px;
+   	border-radius:0px;
+	background-color:#fff;
+	color:black;
+	width:15px;
+	height:15px;
+	cursor: pointer;
+	clear: both;
+}
+li#button-contact-form input[type=checkbox]:checked{
+	color:#999;
+}
+li#button-contact-form p {
+	width: 320px;
+	height: 40px;
+	float: left;
+	margin-top: 13px;
+	text-align: justify;
+}
+button.submit {
+    width: 345px;
+    height: 50px;
+    background-color: rgba(183, 195, 192, 0.7);
+    border: 1px solid #e7e7e7;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 0 !important;
+    float: left;
+}
+button.submit:hover {
+    opacity:.85;
+    cursor: pointer; 
+}
+button.submit:active {
+    border: 1px solid #fff;
+    outline: 0;
 }
