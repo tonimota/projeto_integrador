@@ -6,16 +6,13 @@
 
 	include 'db.php';
 
-	//CONSULTA DB
-	$stmt = odbc_prepare($conn, "select * from Professor");
-
-    odbc_execute($stmt);
-    echo odbc_errormsg($conn);
-   	//print_r(odbc_fetch_array($stmt));
-   	$result = odbc_fetch_array($stmt);
-    $rows = odbc_num_rows($stmt);
+//CONSULTAS DB
+	// SELECT
+	
+	$stmt = odbc_exec($conn, "select * from Professor");
+	echo odbc_errormsg($conn);
+	
 ?>
-
 <html>
 <head>
 	<title>Login</title>
