@@ -5,15 +5,6 @@
 	}
 
 	include 'db.php';
-
-	//CONSULTA DB
-	$stmt = odbc_prepare($conn, "select * from Professor");
-
-    odbc_execute($stmt);
-    echo odbc_errormsg($conn);
-   	//print_r(odbc_fetch_array($stmt));
-   	$result = odbc_fetch_array($stmt);
-    $rows = odbc_num_rows($stmt);
 ?>
 <html>
 <head>
@@ -28,10 +19,10 @@
 		<?php if ($_SESSION['showMenu'] == true) {?>
 		<nav>
 			<ul>
-				<li><a href="">Inicio</a></li>
-				<li><a href="">Usuários</a></li>
-				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
+				<li><a href="index.php">Inicio</a></li>
+				<li><a href="first.php">Usuários</a></li>
 				<li><a href="new_user.php">Inserir Usuário</a></li>
+				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>				
 			</ul>
 		</nav>
 		<?php }else{
