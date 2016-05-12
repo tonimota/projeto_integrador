@@ -12,9 +12,7 @@
 
 		    odbc_execute($stmt, array($username));
 		    echo odbc_errormsg($conn);
-		   	//print_r(odbc_fetch_array($stmt));
 		   	$result = odbc_fetch_array($stmt);
-		   
 		    $rows = odbc_num_rows($stmt);
 		    
 		   	if ($rows > 0) {

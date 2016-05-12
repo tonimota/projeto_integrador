@@ -15,7 +15,7 @@
 ?>
 <html>
 <head>
-	<title>Login</title>
+	<title>Usuarios</title>
 	<meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -47,10 +47,26 @@
 					<th>Excluir</th>
 				<tr>
 			<?php
-				while($area = odbc_fetch_array($stmt)){
-					echo ("<tr><td>".$area['nome']."</td>"."<td>".$area['email']."</td>"."<td>".$area['tipo']."</td>"."<td>"."<a href='update.php'><button type='submit' class='my-button2' value='Alterar'></button></a>"."<td>"."<p> <a href='#'>Excluir</a></p>"."</td>"."</tr>");
-				}					
-			?>
+				while($area = odbc_fetch_array($stmt)){ ?>
+					<tr>
+						<td>
+							<?php echo $area['nome']; ?>
+						</td>
+						<td>
+							<?php echo $area['email']; ?>
+						</td>
+						<td>
+							<?php echo $area['tipo']; ?>
+						</td>
+						<td>
+							<a href='update.php?cod=<?php echo $area["codProfessor"] ?>&nome=<?php echo $area['nome']; ?>&email=<?php echo $area['email']; ?>&tipo=<?php echo $area['tipo']; ?>&senac_id=<?php echo $area['idSenac']; ?>'><button class='my-button2' value='Alterar'></button></a>
+						</td>
+						<td>
+							<p> <a href='#'>Excluir</a></p>
+						</td>
+					</tr>
+					
+				<?php } ?>					
 			</table>
 		</div>
 	</div>

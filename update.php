@@ -1,23 +1,53 @@
 <?php
 	session_start();
+	include 'db.php';
 	if (!isset($_SESSION['showMenu'])) {
 		header('Location: index.php');
 	}
 
-	include 'db.php';
+	if(!isset($_GET['cod'])){
+		header('Location: first.php');
+	}else{
+		$cod = $_GET['cod'];
+		$name = $_GET['nome'];
+		$email = $_GET['email'];
+		$type = $_GET['tipo'];
+		$senac_id = $_GET['senac_id'];
+	}
+	
+	if(isset($_POST['update_user'])){
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$type = $_POST['type'];
+		$senac_id = $_POST['senac_id'];
+		
+		if (empty($name) or empty($email) or empty($type)) {
+			
+			$error = "<br><br><br><br><br><br>Erro ao Inserir dados";
+			print_r($error);
+		}else{
+			
+			$query = odbc_prepare($conn, "UPDATE TABLE Professor (nome, email, idSenac, tipo) VALUES (?, ?, ?, ?)");
+			echo odbc_errormsg($query)
+			odbc_execute($query, array($name, $email, $senac_id, $type));
+			if(odbc_num_rows($query) > 0){
+				$mensag = "<br><br><br><br><br><br>Você alterou com sucesso<br>";
+			}else{
+				echo 'erro';
+			}
+		
+		}
+	}
+	
+	
 
 	//CONSULTA DB
-	$stmt = odbc_prepare($conn, "select * from Professor");
-
-    odbc_execute($stmt);
-    echo odbc_errormsg($conn);
-   	//print_r(odbc_fetch_array($stmt));
-   	$result = odbc_fetch_array($stmt);
-    $rows = odbc_num_rows($stmt);
+	
+	
 ?>
 <html>
 <head>
-	<title>Login</title>
+	<title>Editar</title>
 	<meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -26,14 +56,7 @@
 <body>
 	<header>
 		<?php if ($_SESSION['showMenu'] == true) {?>
-		<nav>
-			<ul>
-				<li><a href="">Inicio</a></li>
-				<li><a href="">Usuários</a></li>
-				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
-				<li><a href="new_user.php">Inserir Usuário</a></li>
-			</ul>
-		</nav>
+		
 		<?php }else{
 			echo 'sem menu';
 		}?>
@@ -41,23 +64,35 @@
 <div id='up-form'>
 	<div id="element_to_pop_up">
 	<a class="b-close">x</a>
-		<form id="update_user">
+		<form id="update_user" name='frmUpdate' method='post' action=''>
 			<h3>Preencha os campos</h3>
 			<ul>
 				<li>
 					<div class="icon-form">
 						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 					</div>
-					<input type="text" placeholder="Nome"></input>
+					<input type="text" placeholder="Nome" name='name' value='<?php echo $name; ?>'></input>
 				</li>
 				<li>
 					<div class="icon-form">
 						<i class="fa fa fa-envelope" aria-hidden="true"></i>
 					</div>
-					<input type="email" placeholder="E-mail"></input>
+					<input type="email" placeholder="E-mail" name='email' value='<?php echo $email; ?>'></input>
+				</li>
+				<li>
+					<div class="icon-form">
+						<i class="fa fa fa-envelope" aria-hidden="true"></i>
+					</div>
+					<input type="text" placeholder="ID Senac" name='senac_id' value='<?php echo $senac_id; ?>'></input>
+				</li>
+				<li>
+					<div class="icon-form">
+						<i class="fa fa fa-envelope" aria-hidden="true"></i>
+					</div>
+					<input type="text" placeholder="Tipo" name='type' value='<?php echo $type; ?>'></input>
 				</li>
 				<li id="button-contact-form">
-					<button class="submit" type="submit">Enviar</button>
+					<button class="submit" type="submit" name='update_user'>Enviar</button>
 				</li>			
 			</ul>
 		</form>
