@@ -10,8 +10,4 @@
 		return $result;
 	}
 	
-	function delete($sql, $conn){
-		$query = odbc_prepare($conn, $sql);
-		odbc_exec($query);
-		echo odbc_errormsg;
-	}
+	

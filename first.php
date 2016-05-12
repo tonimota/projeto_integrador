@@ -5,15 +5,12 @@
 	}
 
 	include 'db.php';
-	include 'crud_functions.php';
 
 //CONSULTAS DB
 	// SELECT
- 	$result = select("select * from Professor", $conn);
 	
-	
-	
-
+	$stmt = odbc_exec($conn, "select * from Professor");
+	echo odbc_errormsg($conn);
 	
 ?>
 <html>
