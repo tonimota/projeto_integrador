@@ -165,26 +165,50 @@ nav ul li {
 	width: 800px;
 	height: 800px;
 	margin: 0 auto;
+	margin-top: 5px;
+	outline: 1px solid #ccc;
 }
 .table-holder table {
 	width: 100%;
 	height: auto;
 	font-size: 0;
 	border-spacing: 0;
+	margin-bottom: 10px;
 } 
 .table-holder table th {
 	line-height: 50px;
 	text-align: left;
-	background-color: rgba(0, 187, 212, 0.2);
+	background-color: rgba(56, 89, 101, 0.8);
 	border: 0;
 	font-size: 14px;
+	color: #fff;
 
+}
+.table-holder table tr td, th {
+	padding-left: 5px;
 }
 .table-holder table td {
 	border: 0;
 	font-size: 14px;
+	letter-spacing: 1px;
 }
-
+.table-holder table td {
+	border-bottom: 1px solid #ccc !important;
+}
+.table-holder table th:last-child {
+	text-align: center;
+}
+.table-holder table td:last-child {
+	text-align: center;
+}
+.table-holder table td:nth-child(3), th:nth-child(3){
+	text-align: center !important;
+}
+.table-holder table td a, button {
+	width: 50px;
+	height: 20px;
+	margin: 0 auto;
+}
 /* New User */
 
 #up-form {

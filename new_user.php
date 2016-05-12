@@ -32,17 +32,17 @@ if(isset($_POST['new_user'])) {
 	<meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
 <body>
 	<header>
 		<?php if ($_SESSION['showMenu'] == true) {?>
 		<nav>
 			<ul>
-				<li><a href="first.php">Inicio</a></li>
-				<li><a href="">Cadastrar</a></li>
-				<li><a href="">Usuários</a></li>
-				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
+				<li><a href="index.php">Inicio</a></li>
+				<li><a href="first.php">Usuários</a></li>
 				<li><a href="new_user.php">Inserir Usuário</a></li>
+				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
 			</ul>
 		</nav>
 		<?php }else{

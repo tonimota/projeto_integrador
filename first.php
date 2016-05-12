@@ -26,10 +26,10 @@
 		<?php if ($_SESSION['showMenu'] == true) {?>
 		<nav>
 			<ul>
-				<li><a href="">Inicio</a></li>
-				<li><a href="">Usuários</a></li>
-				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
+				<li><a href="index.php">Inicio</a></li>
+				<li><a href="first.php">Usuários</a></li>
 				<li><a href="new_user.php">Inserir Usuário</a></li>
+				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
 			</ul>
 		</nav>
 		<?php }else{
@@ -47,6 +47,7 @@
 					<th>Excluir</th>
 				<tr>
 			<?php
+<<<<<<< HEAD
 				while($area = odbc_fetch_array($stmt)){ ?>
 					<tr>
 						<td>
@@ -67,6 +68,13 @@
 					</tr>
 					
 				<?php } ?>					
+=======
+				while($area = odbc_fetch_array($stmt)){
+					echo ("<tr><td>".$area['nome']."</td>"."<td>".$area['email']."</td>"."<td>".$area['tipo']."</td>"."<td>"."<a href='update.php'><button type='submit' class='my-button2' value='Alterar'></button></a>"."<td>"."<a href='#'><i class='fa fa-trash fa-2x' aria-hidden='true'></i>
+</a>"."</td>"."</tr>");
+				}					
+			?>
+>>>>>>> bb531ab385fc9cc5b58ee0771cb339fa67bc8e89
 			</table>
 		</div>
 	</div>

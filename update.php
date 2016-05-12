@@ -5,6 +5,7 @@
 		header('Location: index.php');
 	}
 
+<<<<<<< HEAD
 	if(!isset($_GET['cod'])){
 		header('Location: first.php');
 	}else{
@@ -44,6 +45,9 @@
 	//CONSULTA DB
 	
 	
+=======
+	include 'db.php';
+>>>>>>> bb531ab385fc9cc5b58ee0771cb339fa67bc8e89
 ?>
 <html>
 <head>
@@ -56,7 +60,18 @@
 <body>
 	<header>
 		<?php if ($_SESSION['showMenu'] == true) {?>
+<<<<<<< HEAD
 		
+=======
+		<nav>
+			<ul>
+				<li><a href="index.php">Inicio</a></li>
+				<li><a href="first.php">Usuários</a></li>
+				<li><a href="new_user.php">Inserir Usuário</a></li>
+				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>				
+			</ul>
+		</nav>
+>>>>>>> bb531ab385fc9cc5b58ee0771cb339fa67bc8e89
 		<?php }else{
 			echo 'sem menu';
 		}?>
