@@ -5,15 +5,16 @@
 	}
 
 	include 'db.php';
+	include 'crud_functions.php';
 
-	//CONSULTA DB
-	$stmt = odbc_prepare($conn, "select * from Professor");
+//CONSULTAS DB
+	// SELECT
+ 	$result = select("select * from Professor", $conn);
+	
+	
+	
 
-    odbc_execute($stmt);
-    echo odbc_errormsg($conn);
-   	//print_r(odbc_fetch_array($stmt));
-   	$result = odbc_fetch_array($stmt);
-    $rows = odbc_num_rows($stmt);
+	
 ?>
 
 	<html>
@@ -29,7 +30,7 @@
 			<?php if ($_SESSION['showMenu'] == true) {?>
 			<nav>
 				<ul>
-					<li><a href="">Inicio</a></li>
+					<li><a href="first.php">Inicio</a></li>
 					<li><a href="">Cadastrar</a></li>
 					<li><a href="">Usuários</a></li>
 					<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
@@ -47,12 +48,28 @@
 						<th>Nome</th>
 						<th>E-mail</th>
 						<th>Tipo</th>
+						<th>Editar</th>
+						<th>Deletar</th>
 					<tr>
-				<?php
-					while($area = odbc_fetch_array($stmt)){
-						echo ("<tr><td>".$area['nome']."</td>"."<td>".$area['email']."</td>"."<td>".$area['tipo']."</td>"."<td>"."<input type='submit' value='Alterar'>"."<td>"."<p> <a href='#'>Excluir</a></p>"."</td>"."</tr>");
-					}					
-				?>
+				<?php foreach($result as $area){ ?>
+						<tr>
+							<td>
+								<?php echo $area['nome'];?>
+							</td>
+							<td>
+								<?php echo $area['email'];?>
+							</td>
+							<td>
+								<?php echo $area['tipo'];?>
+							</td>
+							<td>
+								<input type='submit' value='Alterar'>
+							</td>
+							<td>
+								<a href='#'>Excluir</a>
+							</td>
+						</tr>
+				<?php } ?>
 				</table>
 			</div>
 		</div>
