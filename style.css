@@ -10,19 +10,16 @@ html, body, *, a, ul, li {
 * {
 	font-family: 'Roboto', sans‐serif;
 }
-
 #container {
 	width: 100%;
 	height: 100%;
 }
-
 #container form {
 	width: 400px;
 	height: 500px;
 	margin: 100px auto;
 	outline: 1px solid #e7e7e7;
 }
-
 #container form #thumb {
 	width: 150px;
 	height: 150px;
@@ -42,7 +39,6 @@ html, body, *, a, ul, li {
 	margin-left: 25px;
 	text-align: center;
 }
-
 #container form fieldset {
 	width: 150px;
 	height: 40px;
@@ -50,7 +46,6 @@ html, body, *, a, ul, li {
 	border: 0px;
 	float: left;
 }
-
 #container form fieldset button {
 	width: 150px;
 	height: 30px;
@@ -117,7 +112,6 @@ nav ul li {
 	position:relative;
 	top:50px;
 }
-
 #new_user form{
 	width:500px;
 	margin:0 auto;
@@ -158,4 +152,35 @@ nav ul li {
 }
 #new_user form p {
 	text-align:center;
+}
+.my-button2 {
+	width: 50px;
+	height: 20px;
+}
+
+
+/* Table Users  */
+
+.table-holder {
+	width: 800px;
+	height: 800px;
+	margin: 0 auto;
+}
+.table-holder table {
+	width: 100%;
+	height: auto;
+}
+
+table,tbody,tr, td { border: none; }  
+
+.table-holder table th {
+	line-height: 50px;
+	text-align: left;
+	background-color: rgba(0, 187, 212, 0.2);
+	border: 0;
+
+
+}
+.table-holder table td {
+	border: 0;
 }
