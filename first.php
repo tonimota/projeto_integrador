@@ -47,7 +47,7 @@
 					<th>Excluir</th>
 				<tr>
 			<?php
-<<<<<<< HEAD
+			
 				while($area = odbc_fetch_array($stmt)){ ?>
 					<tr>
 						<td>
@@ -60,21 +60,15 @@
 							<?php echo $area['tipo']; ?>
 						</td>
 						<td>
-							<a href='update.php?cod=<?php echo $area["codProfessor"] ?>&nome=<?php echo $area['nome']; ?>&email=<?php echo $area['email']; ?>&tipo=<?php echo $area['tipo']; ?>&senac_id=<?php echo $area['idSenac']; ?>'><button class='my-button2' value='Alterar'></button></a>
+							<a href='update.php?cod=<?php echo $area["codProfessor"] ?>&nome=<?php echo $area['nome']; ?>&email=<?php echo $area['email']; ?>&tipo=<?php echo $area['tipo']; ?>&senac_id=<?php echo $area['idSenac']; ?>'><button class='my-button2'>Alterar</button></a>
 						</td>
 						<td>
-							<p> <a href='#'>Excluir</a></p>
+							<a href='delete.php?cod=<?php echo $area["codProfessor"] ?>'><button class='my-button2'>Excluir</button></a>
 						</td>
 					</tr>
 					
 				<?php } ?>					
-=======
-				while($area = odbc_fetch_array($stmt)){
-					echo ("<tr><td>".$area['nome']."</td>"."<td>".$area['email']."</td>"."<td>".$area['tipo']."</td>"."<td>"."<a href='update.php'><button type='submit' class='my-button2' value='Alterar'></button></a>"."<td>"."<a href='#'><i class='fa fa-trash fa-2x' aria-hidden='true'></i>
-</a>"."</td>"."</tr>");
-				}					
-			?>
->>>>>>> bb531ab385fc9cc5b58ee0771cb339fa67bc8e89
+
 			</table>
 		</div>
 	</div>

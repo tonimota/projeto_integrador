@@ -5,7 +5,6 @@
 		header('Location: index.php');
 	}
 
-<<<<<<< HEAD
 	if(!isset($_GET['cod'])){
 		header('Location: first.php');
 	}else{
@@ -28,26 +27,18 @@
 			print_r($error);
 		}else{
 			
-			$query = odbc_prepare($conn, "UPDATE TABLE Professor (nome, email, idSenac, tipo) VALUES (?, ?, ?, ?)");
-			echo odbc_errormsg($query)
-			odbc_execute($query, array($name, $email, $senac_id, $type));
-			if(odbc_num_rows($query) > 0){
+			$query = odbc_prepare($conn, "UPDATE Professor set nome=?, email=?, idSenac=?, tipo=? where codProfessor=? ");
+			$exec = odbc_execute($query, array($name, $email, $senac_id, $type, $cod));
+			echo odbc_errormsg($conn);
+			if($exec){
 				$mensag = "<br><br><br><br><br><br>Você alterou com sucesso<br>";
 			}else{
-				echo 'erro';
+				$mensag = '<br><br><br><br><br><br>Erro<br>';
 			}
-		
+			
 		}
 	}
 	
-	
-
-	//CONSULTA DB
-	
-	
-=======
-	include 'db.php';
->>>>>>> bb531ab385fc9cc5b58ee0771cb339fa67bc8e89
 ?>
 <html>
 <head>
@@ -60,18 +51,9 @@
 <body>
 	<header>
 		<?php if ($_SESSION['showMenu'] == true) {?>
-<<<<<<< HEAD
-		
-=======
-		<nav>
-			<ul>
-				<li><a href="index.php">Inicio</a></li>
-				<li><a href="first.php">Usuários</a></li>
-				<li><a href="new_user.php">Inserir Usuário</a></li>
-				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>				
-			</ul>
-		</nav>
->>>>>>> bb531ab385fc9cc5b58ee0771cb339fa67bc8e89
+
+	
+
 		<?php }else{
 			echo 'sem menu';
 		}?>
