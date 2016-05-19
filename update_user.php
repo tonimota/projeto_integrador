@@ -51,14 +51,9 @@
 <body>
 	<header>
 		<?php if ($_SESSION['showMenu'] == true) {?>
-		<nav>
-			<ul>
-				<li><a href="index.php">Inicio</a></li>
-				<li><a href="first.php">Usuários</a></li>
-				<li><a href="new_user.php">Inserir Usuário</a></li>
-				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
-			</ul>
-		</nav>
+
+	
+
 		<?php }else{
 			echo 'sem menu';
 		}?>
@@ -91,8 +86,8 @@
 						<label for="check1">A</label>
 						<input type="radio" name='update_user' class="tipo_up" value="P">
 						<label for="check1">P</label>
-					<button type="submit" class="submit" name="update_user">Salvar</button>
-				</li>			
+				</li>
+				<button type="submit" name="update_user">Salvar</button>			
 			</ul>
 		</form>
 	</div>
