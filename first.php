@@ -60,10 +60,10 @@
 							<?php echo $area['tipo']; ?>
 						</td>
 						<td>
-							<a href='update.php?cod=<?php echo $area["codProfessor"] ?>&nome=<?php echo $area['nome']; ?>&email=<?php echo $area['email']; ?>&tipo=<?php echo $area['tipo']; ?>&senac_id=<?php echo $area['idSenac']; ?>'><button class='my-button2'>Alterar</button></a>
+							<a href='update.php?cod=<?php echo $area["codProfessor"] ?>&nome=<?php echo $area['nome']; ?>&email=<?php echo $area['email']; ?>&tipo=<?php echo $area['tipo']; ?>&senac_id=<?php echo $area['idSenac']; ?>'><button class='my-button2'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button></a>
 						</td>
 						<td>
-							<a href='delete.php?cod=<?php echo $area["codProfessor"] ?>'><button class='my-button2'>Excluir</button></a>
+							<a href='delete.php?cod=<?php echo $area["codProfessor"] ?>'><button class='my-button2'><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button></a>
 						</td>
 					</tr>
 					

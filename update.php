@@ -60,7 +60,6 @@
 	</header>
 <div id='up-form'>
 	<div id="element_to_pop_up">
-	<a class="b-close">x</a>
 		<form id="update_user" name='frmUpdate' method='post' action=''>
 			<h3>Preencha os campos</h3>
 			<ul>
@@ -88,8 +87,11 @@
 					</div>
 					<input type="text" placeholder="Tipo" name='type' value='<?php echo $type; ?>'></input>
 				</li>
-				<li id="button-contact-form">
-					<button class="submit" type="submit" name='update_user'>Enviar</button>
+				<li id="button-contact-form_2">
+				<input type="radio" name='update_user' class="tipo_up" value="A" checked>
+						<label for="check1">A</label>
+						<input type="radio" name='update_user' class="tipo_up" value="P">
+						<label for="check1">P</label>
 				</li>			
 			</ul>
 		</form>

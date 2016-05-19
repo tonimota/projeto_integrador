@@ -154,8 +154,10 @@ nav ul li {
 	text-align:center;
 }
 .my-button2 {
-	width: 50px;
-	height: 20px;
+	width: 60px;
+	height: 30px;
+	background-color: #fff;
+	border: 0px;
 }
 
 
@@ -195,7 +197,7 @@ nav ul li {
 .table-holder table td {
 	border-bottom: 1px solid #ccc !important;
 }
-.table-holder table th:last-child {
+.table-holder table th:last-child, .table-holder table th:nth-child(4) {
 	text-align: center;
 }
 .table-holder table td:last-child {
@@ -204,10 +206,22 @@ nav ul li {
 .table-holder table td:nth-child(3), th:nth-child(3){
 	text-align: center !important;
 }
-.table-holder table td a, button {
+.table-holder table td a {
 	width: 50px;
 	height: 20px;
 	margin: 0 auto;
+}
+.table-holder table tr td:nth-child(4) {
+	width: 100px;
+}
+.table-holder table tr td:nth-child(4), a {
+	width: 100px;
+	height:30px;
+	text-align: center;
+}
+.table-holder table tr td:nth-child(4) button {
+	width: 27px;
+	cursor: pointer;
 }
 /* New User */
 
@@ -346,8 +360,18 @@ nav ul li {
 #element_to_pop_up button {margin-left:156px;}
 
 li#button-contact-form {
-	width: 320px;
+	width: 350px;
 	height: 150px;
+}
+li#button-contact-form_2 label {
+	display: inline-block;
+	line-height: 15px;
+}
+li#button-contact-form_2 .tipo_up {
+	display: inline-block;
+	width: 20px;
+	height:18px;
+	float: none;
 }
 li#button-contact-form input[type=checkbox] {
 	margin-top: 15px;
@@ -361,13 +385,6 @@ li#button-contact-form input[type=checkbox] {
 }
 li#button-contact-form input[type=checkbox]:checked{
 	color:#999;
-}
-li#button-contact-form p {
-	width: 320px;
-	height: 40px;
-	float: left;
-	margin-top: 13px;
-	text-align: justify;
 }
 button.submit {
     width: 345px;
