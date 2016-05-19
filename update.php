@@ -81,18 +81,13 @@
 					</div>
 					<input type="text" placeholder="ID Senac" name='senac_id' value='<?php echo $senac_id; ?>'></input>
 				</li>
-				<li>
-					<div class="icon-form">
-						<i class="fa fa fa-envelope" aria-hidden="true"></i>
-					</div>
-					<input type="text" placeholder="Tipo" name='type' value='<?php echo $type; ?>'></input>
-				</li>
 				<li id="button-contact-form_2">
 				<input type="radio" name='update_user' class="tipo_up" value="A" checked>
 						<label for="check1">A</label>
 						<input type="radio" name='update_user' class="tipo_up" value="P">
 						<label for="check1">P</label>
-				</li>			
+				</li>
+				<button type="submit" name="update_user">Salvar</button>			
 			</ul>
 		</form>
 	</div>

@@ -366,10 +366,11 @@ li#button-contact-form {
 li#button-contact-form_2 label {
 	display: inline-block;
 	line-height: 15px;
+	font-size: 20px;
 }
 li#button-contact-form_2 .tipo_up {
 	display: inline-block;
-	width: 20px;
+	width: 25px;
 	height:18px;
 	float: none;
 }
