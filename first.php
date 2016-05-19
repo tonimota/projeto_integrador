@@ -6,6 +6,18 @@
 
 	include 'db.php';
 
+	if(isset($_GET['response'])){
+		$response = $_GET['response'];
+		if($response != 0){
+			$msg = "Excluido com sucesso";
+		}else{
+			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser excluido";
+		}
+		
+		echo $msg;
+			
+	}
+	
 //CONSULTAS DB
 	// SELECT
 	
