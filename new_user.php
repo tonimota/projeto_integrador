@@ -40,7 +40,9 @@ if(isset($_POST['new_user'])) {
 		<nav>
 			<ul>
 				<li><a href="users.php">Usuários</a></li>
-				<li><a href="new_user.php">Inserir Usuário</a></li>
+				<li><a href="area.php">Area</a></li>
+				<li><a href="assunto.php">Assunto</a></li>
+				<li><a href="tipo_questao.php">Tipo Questão</a></li>
 				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
 			</ul>
 		</nav>

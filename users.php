@@ -29,12 +29,12 @@
 <head>
 	<title>Usuarios</title>
 	<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="style.css">
-<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-<script type="text/javascript">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<script type="text/javascript">
 		
-</script>
+	</script>
 </head>
 <body>
 	<header>
@@ -42,7 +42,9 @@
 		<nav>
 			<ul>
 				<li><a href="users.php">Usuários</a></li>
-				<li><a href="new_user.php">Inserir Usuário</a></li>
+				<li><a href="area.php">Area</a></li>
+				<li><a href="assunto.php">Assunto</a></li>
+				<li><a href="tipo_questao.php">Tipo Questão</a></li>
 				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
 			</ul>
 		</nav>
@@ -51,6 +53,7 @@
 		}?>
 	</header>
 	<div id='wrapper'>
+		<a href="new_user.php" class='my-button'>Inserir Usuário</a>
 		<div class='table-holder'>
 			<table>
 				<tr>
