@@ -18,7 +18,7 @@
 		   	if ($rows > 0) {
 		   		$_SESSION['codProfessor'] = $result['codProfessor'];
 		   		$_SESSION['showMenu'] = true;
-		   		header('Location: first.php');
+		   		header('Location: users.php');
 
 
 		   	}else{

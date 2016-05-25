@@ -6,7 +6,7 @@
 	}
 
 	if(!isset($_GET['cod'])){
-		header('Location: first.php');
+		header('Location: users.php');
 	}else{
 		$cod = $_GET['cod'];
 		$name = $_GET['nome'];
@@ -52,7 +52,11 @@
 	<header>
 		<?php if ($_SESSION['showMenu'] == true) {?>
 
-	
+			<ul>
+				<li><a href="users.php">Usuários</a></li>
+				<li><a href="new_user.php">Inserir Usuário</a></li>
+				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
+			</ul>
 
 		<?php }else{
 			echo 'sem menu';

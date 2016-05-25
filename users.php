@@ -41,8 +41,7 @@
 		<?php if ($_SESSION['showMenu'] == true) {?>
 		<nav>
 			<ul>
-				<li><a href="index.php">Inicio</a></li>
-				<li><a href="first.php">Usuários</a></li>
+				<li><a href="users.php">Usuários</a></li>
 				<li><a href="new_user.php">Inserir Usuário</a></li>
 				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
 			</ul>
