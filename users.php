@@ -22,7 +22,6 @@
 	// SELECT
 	
 	$stmt = odbc_exec($conn, "select * from Professor");
-	echo odbc_errormsg($conn);
 	
 ?>
 <html>
