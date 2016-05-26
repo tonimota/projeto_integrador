@@ -14,7 +14,19 @@
 			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser excluido";
 		}
 		
-		echo $msg;
+		echo "<center>$msg</center>";
+			
+	}
+	
+	if(isset($_GET['responseDelete'])){
+		$response = $_GET['responseDelete'];
+		if($response != 0){
+			$msg = "Excluido com sucesso";
+		}else{
+			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser excluido";
+		}
+		
+		echo "<center>$msg</center>";
 			
 	}
 	
@@ -31,9 +43,8 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-	<script type="text/javascript">
-		
-	</script>
+	<script type='text/javascript' src='jquery-2.2.3.js'></script>
+	<script type='text/javascript' src='scripts.js'></script>
 </head>
 <body>
 	<header>
@@ -76,10 +87,10 @@
 							<?php echo $area['tipo']; ?>
 						</td>
 						<td>
-							<a href='update_user.php?cod=<?php echo $area["codProfessor"] ?>&nome=<?php echo $area['nome']; ?>&email=<?php echo $area['email']; ?>&tipo=<?php echo $area['tipo']; ?>&senac_id=<?php echo $area['idSenac']; ?>'><button class='my-button2'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button></a>
+							<a href='update_user.php?cod=<?php echo $area["codProfessor"] ?>&nome=<?php echo $area['nome']; ?>&email=<?php echo $area['email']; ?>&tipo=<?php echo $area['tipo']; ?>&senac_id=<?php echo $area['idSenac']; ?>'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
 						</td>
 						<td>
-							<a href='delete_user.php?cod=<?php echo $area["codProfessor"] ?>'><button class='my-button2'><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button></a>
+							<a class='delete' href='delete_user.php?cod=<?php echo $area["codProfessor"] ?>'><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
 						</td>
 					</tr>
 					

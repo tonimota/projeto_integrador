@@ -1,38 +1,46 @@
 <?php
 
-session_start();
-include 'db.php';
+	session_start();
+	include 'db.php';
 
-if(isset($_POST['new_user'])) {
+	if(isset($_POST['new_user'])) {
 
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$senha = $_POST['senha'];
-	$idSenac = $_POST['idSenac'];
-	$tipo = $_POST['tipo'];
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$senha = $_POST['senha'];
+		$idSenac = $_POST['idSenac'];
+		$tipo = $_POST['tipo'];
 
-	if (empty($name) or empty($email) or empty($senha)) {
+		if (empty($name) or empty($email) or empty($senha)) {
 
-		$error = "<br><br><br><br><br><br>Erro ao Inserir dados";
-		print_r($error);
+			$error = "<br><br><br><br><br><br>Erro ao Inserir dados";
+			print_r($error);
 
-	} else {
-		$query = " INSERT INTO Professor (nome, email, senha, idSenac, tipo) VALUES ('$name','$email', HASHBYTES('SHA1', '$senha'), '$idSenac', '$tipo'); ";
+		} else {
+			$query = " INSERT INTO Professor (nome, email, senha, idSenac, tipo) VALUES ('$name','$email', HASHBYTES('SHA1', '$senha'), '$idSenac', '$tipo'); ";
 
-		$od = odbc_exec($conn, $query);
-		$mensag = "<br><br><br><br><br><br>Você inseriu com sucesso<br>";
-		print_r($mensag);
+			$exec = odbc_exec($conn, $query);
+			
+			if($exec){
+				$msg = "1";
+			}else{
+				$msg = "0";
+			}
+			header ("Location: area.php?response=$msg");
+			
+		}
 	}
-}
 ?>
 
 <html>
 <head>
 	<title>Novo Usuário</title>
 	<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="style.css">
-<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+	<script type='text/javascript' src='jquery-2.2.3.js'></script>
+	<script type='text/javascript' src='scripts.js'></script>
 </head>
 <body>
 	<header>
