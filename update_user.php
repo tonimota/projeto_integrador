@@ -35,7 +35,7 @@
 			}else{
 				$msg = "0";
 			}
-			header ("Location: area.php?response=$msg");
+			header ("Location: users.php?response=$msg");
 			
 		}
 	}
@@ -55,6 +55,7 @@
 	<header>
 		<?php if ($_SESSION['showMenu'] == true) {?>
 
+		<!--<nav>
 			<ul>
 				<li><a href="users.php">Usuários</a></li>
 				<li><a href="area.php">Area</a></li>
@@ -62,6 +63,7 @@
 				<li><a href="tipo_questao.php">Tipo Questão</a></li>
 				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
 			</ul>
+		</nav>-->
 
 		<?php }else{
 			echo 'sem menu';
@@ -91,10 +93,19 @@
 					<input type="text" placeholder="ID Senac" name='senac_id' value='<?php echo $senac_id; ?>'></input>
 				</li>
 				<li id="button-contact-form_2">
-				<input type="radio" name='update_user' class="tipo_up" value="A" checked>
+					<?php if($type == 'A'){?>
+						<input type="radio" name='type' class="tipo_up" value="A" checked>
 						<label for="check1">A</label>
-						<input type="radio" name='update_user' class="tipo_up" value="P">
+						
+						<input type="radio" name='type' class="tipo_up" value="P">
 						<label for="check1">P</label>
+					<?php }else{?>
+						<input type="radio" name='type' class="tipo_up" value="A">
+						<label for="check1">A</label>
+					
+						<input type="radio" name='type' class="tipo_up" value="P" checked>
+						<label for="check1">P</label>
+					<?php } ?>
 				</li>
 				<button type="submit" name="update_user">Salvar</button>			
 			</ul>

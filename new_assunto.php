@@ -6,6 +6,7 @@
 	if(isset($_POST['new_assunto'])) {
 
 		$description = $_POST['description'];
+		$codArea = $_POST['codArea'];
 
 		if (empty($description)) {
 
@@ -13,7 +14,7 @@
 			print_r($error);
 
 		} else {
-			$query = " INSERT INTO Assunto (descricao) VALUES ('$description'); ";
+			$query = " INSERT INTO Assunto (descricao, codArea) VALUES ('$description', '$codArea'); ";
 
 			$exec = odbc_exec($conn, $query);
 			
@@ -58,9 +59,9 @@
 	<div id="new_user">
 		<form method="POST" action='' name='frmUser'>
 			<input type="text" name="description" id="description" placeholder="Descricao">
-			<select>
-			<?php while($assunto = odbc_fetch_array($stmt)){ ?>
-				<option></option>
+			<select name='codArea' id='codArea'>
+			<?php while($area = odbc_fetch_array($stmt)){ ?>
+				<option value='<?php echo $area["codArea"]; ?>'><?php echo $area['descricao']; ?></option>
 			<?php } ?>
 			</select>
 			<button type="submit" name="new_assunto">Salvar</button>

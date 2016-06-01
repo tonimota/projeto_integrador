@@ -30,7 +30,7 @@
 			
 	}
 	
-	$stmt = odbc_exec($conn, "select * from Assunto");
+	$stmt = odbc_exec($conn, "select ASS.codAssunto, ASS.descricao, AR.codArea, AR.descricao as area from assunto ASS inner join area AR on ASS.codArea = AR.codArea");
 ?>
 
 <html>
@@ -66,6 +66,7 @@
 				<tr>
 					<th>ID</th>
 					<th>Descricao</th>
+					<th>Area</th>
 					<th>Alterar</th>
 					<th>Excluir</th>
 				<tr>
@@ -80,10 +81,13 @@
 							<?php echo $assunto["descricao"]; ?>
 						</td>
 						<td>
-							<a href='update_assunto.php?cod=<?php echo $assunto["codAssunto"] ?>&description=<?php echo $assunto['descricao']; ?>'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+							<?php echo $assunto["area"]; ?>
 						</td>
 						<td>
-							<a class='delete' href='delete_area.php?cod=<?php echo $assunto["codArea"] ?>'><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+							<a href='update_assunto.php?cod=<?php echo $assunto["codAssunto"] ?>&codArea=<?php echo $assunto['codArea']?>&description=<?php echo $assunto['descricao']; ?>'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+						</td>
+						<td>
+							<a class='delete' href='delete_assunto.php?cod=<?php echo $assunto["codAssunto"] ?>'><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
 						</td>
 					</tr>
 					
