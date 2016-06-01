@@ -3,21 +3,17 @@
 	session_start();
 	include 'db.php';
 
-	if(isset($_POST['new_user'])) {
+	if(isset($_POST['new_assunto'])) {
 
-		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$senha = $_POST['senha'];
-		$idSenac = $_POST['idSenac'];
-		$tipo = $_POST['tipo'];
+		$description = $_POST['description'];
 
-		if (empty($name) or empty($email) or empty($senha)) {
+		if (empty($description)) {
 
-			$error = "<br><br><br><br><br><br>Erro ao Inserir dados";
+			$error = "<br><br><br><br><br><br>Preecha a descricao";
 			print_r($error);
 
 		} else {
-			$query = " INSERT INTO Professor (nome, email, senha, idSenac, tipo) VALUES ('$name','$email', HASHBYTES('SHA1', '$senha'), '$idSenac', '$tipo'); ";
+			$query = " INSERT INTO Assunto (descricao) VALUES ('$description'); ";
 
 			$exec = odbc_exec($conn, $query);
 			
@@ -26,15 +22,16 @@
 			}else{
 				$msg = "0";
 			}
-			header ("Location: users.php?response=$msg");
-			
+			//header ("Location: assunto.php?response=$msg");
 		}
 	}
+	
+	$stmt = odbc_exec($conn, "select * from Assunto");
 ?>
 
 <html>
 <head>
-	<title>Novo Usuário</title>
+	<title>Novo Assunto</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -60,15 +57,13 @@
 	</header>
 	<div id="new_user">
 		<form method="POST" action='' name='frmUser'>
-			<input type="text" name="name" id="name" placeholder="name">
-			<input type="email" name="email" id="email" placeholder="e-mail">
-			<input type="password" name="senha" id="senha" placeholder="senha">
-			<input type="text" name="idSenac" id="idSenac" placeholder="idSenac">
-			<fieldset>
-			<input type="radio" name="tipo" id="tipo" value="A" checked>A
-			<input type="radio" name="tipo" id="tipo" value="P">P
-			</fieldset>
-			<button type="submit" name="new_user">Salvar</button>
+			<input type="text" name="description" id="description" placeholder="Descricao">
+			<select>
+			<?php while($assunto = odbc_fetch_array($stmt)){ ?>
+				<option></option>
+			<?php } ?>
+			</select>
+			<button type="submit" name="new_assunto">Salvar</button>
 		</form>
 	</div>
 </body>
