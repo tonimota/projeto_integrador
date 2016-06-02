@@ -60,7 +60,9 @@
 		}?>
 	</header>
 	<div id='wrapper'>
-		<a href="new_assunto.php" class='my-button'>Inserir Assunto</a>
+		<div class="btn-add">
+			<a href="new_assunto.php" class='myButton2'>Inserir Assunto</a>
+		</div>
 		<div class='table-holder'>
 			<table>
 				<tr>

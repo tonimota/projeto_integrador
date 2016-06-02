@@ -60,7 +60,9 @@
 		}?>
 	</header>
 	<div id='wrapper'>
-		<a href="new_area.php" class='my-button'>Inserir Area</a>
+		<div class="btn-add">
+			<a href="new_area.php" class='myButton2'>Inserir Area</a>
+		</div>
 		<div class='table-holder'>
 			<table>
 				<tr>

@@ -11,8 +11,8 @@
 
 <html>
 <head>
-	<title>Tipo de Questão</title>
 	<meta charset="utf-8">
+	<title>Tipo de Questão</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -37,7 +37,9 @@
 		}?>
 	</header>
 	<div id='wrapper'>
-		<a href="new_tipo_questao.php" class='my-button'>Inserir Tipo de Questão</a>
+		<div class="btn-add">
+			<a href="new_tipo_questao.php" class='myButton2'>Inserir Tipo de Questão</a>
+		</div>
 		<div class='table-holder'>
 			<table>
 				<tr>

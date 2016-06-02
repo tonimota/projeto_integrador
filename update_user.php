@@ -90,7 +90,7 @@
 					<div class="icon-form">
 						<i class="fa fa fa-envelope" aria-hidden="true"></i>
 					</div>
-					<input type="text" placeholder="ID Senac" name='senac_id' value='<?php echo $senac_id; ?>'></input>
+					<input type="tel" placeholder="ID Senac" name='senac_id' value='<?php echo $senac_id; ?>'></input>
 				</li>
 				<li id="button-contact-form_2">
 					<?php if($type == 'A'){?>
