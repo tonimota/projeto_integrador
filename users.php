@@ -102,16 +102,15 @@
 			</table>
 		</div>
 		<?php if(isset($msg)){?>
-		<div id="msg-return">
-			<input type='hidden' id='mensagem' value='<?php echo $msg; ?>'>
-			<?php echo $msg; ?>
+		<div class="msg-return">
+			<?php echo "<div class='style-msg'>$msg</div>"; ?>
 		</div>
 		<?php } ?>
 	</div>
 	<footer>			
 	</footer>
 	<script type="text/javascript">
-		$('#msg-return').delay(3000).fadeOut();
+		$('.msg-return').delay(2000).fadeOut();
 	</script>
 </body>
 </html>
