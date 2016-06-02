@@ -25,7 +25,7 @@
 		
 	}
 	
-	print_r($_SESSION['typeProfessor']);
+	print_r("TIPO:".$_SESSION['typeProfessor']);
 	
 //CONSULTAS DB
 	// SELECT
@@ -62,6 +62,7 @@
 	<div id='wrapper'>
 		<div class="btn-add">
 			<a href="new_user.php" class='myButton2'>Inserir Usuário</a>
+			<a href="update_user.php?cod=<?php echo $_SESSION["codProfessor"] ?>" class='myButton2'>Alterar meus dados</a>
 		</div>
 		<div class='table-holder'>
 			<table>
@@ -69,7 +70,7 @@
 					<th>Nome</th>
 					<th>E-mail</th>
 					<th>Tipo</th>
-					<?php if($_SESSION['typeProfessor'] = 'A'){?>
+					<?php if($_SESSION['typeProfessor'] == 'A'){?>
 					<th>Alterar</th>
 					<th>Excluir</th>
 					<?php } ?>
@@ -87,9 +88,9 @@
 						<td>
 							<?php echo $area['tipo']; ?>
 						</td>
-						<?php if($_SESSION['typeProfessor'] = 'A'){?>
+						<?php if($_SESSION['typeProfessor'] == 'A'){?>
 						<td>
-							<a href='update_user.php?cod=<?php echo $area["codProfessor"] ?>&nome=<?php echo $area['nome']; ?>&email=<?php echo $area['email']; ?>&tipo=<?php echo $area['tipo']; ?>&senac_id=<?php echo $area['idSenac']; ?>'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+							<a href='update_user.php?cod=<?php echo $area["codProfessor"] ?>'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
 						</td>
 						<td>
 							<a class='delete' href='delete_user.php?cod=<?php echo $area["codProfessor"] ?>'><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
