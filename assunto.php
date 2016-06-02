@@ -69,8 +69,10 @@
 					<th>ID</th>
 					<th>Descricao</th>
 					<th>Area</th>
+					<?php if($_SESSION['typeProfessor'] == 'A'){?>
 					<th>Alterar</th>
 					<th>Excluir</th>
+					<?php } ?>
 				<tr>
 			<?php
 			
@@ -85,12 +87,14 @@
 						<td>
 							<?php echo $assunto["area"]; ?>
 						</td>
+						<?php if($_SESSION['typeProfessor'] == 'A'){?>
 						<td>
 							<a href='update_assunto.php?cod=<?php echo $assunto["codAssunto"] ?>&codArea=<?php echo $assunto['codArea']?>&description=<?php echo $assunto['descricao']; ?>'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
 						</td>
 						<td>
 							<a class='delete' href='delete_assunto.php?cod=<?php echo $assunto["codAssunto"] ?>'><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
 						</td>
+						<?php } ?>
 					</tr>
 					
 				<?php } ?>					

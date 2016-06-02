@@ -45,8 +45,10 @@
 				<tr>
 					<th>ID</th>
 					<th>Descricao</th>
+					<?php if($_SESSION['typeProfessor'] == 'A'){?>
 					<th>Alterar</th>
 					<th>Excluir</th>
+					<?php } ?>
 				<tr>
 			<?php
 			
@@ -58,12 +60,14 @@
 						<td>
 							<?php echo $tipo_questao["descricao"]; ?>
 						</td>
+						<?php if($_SESSION['typeProfessor'] == 'A'){?>
 						<td>
 							<a href='update_tipo_questao.php?cod=<?php echo $tipo_questao["codTipoQuestao"] ?>&description=<?php echo $tipo_questao['descricao']; ?>'><button class='my-button2'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button></a>
 						</td>
 						<td>
 							<a href='delete_tipo_questao.php?cod=<?php echo $tipo_questao["codTipoQuestao"] ?>'><button class='my-button2'><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button></a>
 						</td>
+						<?php } ?>
 					</tr>
 					
 				<?php } ?>					
