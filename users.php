@@ -12,8 +12,7 @@
 			$msg = "Efetuado com sucesso";
 		}else{
 			$msg = "Erro ao conectar com o banco de dados";
-		}
-		echo "<center>$msg</center>";		
+		}	
 	}
 	
 	if(isset($_GET['responseDelete'])){
@@ -61,7 +60,7 @@
 		}?>
 	</header>
 	<div id='wrapper'>
-		<div id="btn-add">
+		<div class="btn-add">
 			<a href="new_user.php" class='myButton2'>Inserir Usuário</a>
 			<a href="update_user.php?cod=<?php echo $_SESSION["codProfessor"] ?>" class='myButton2'>Alterar meus dados</a>
 		</div>
@@ -103,11 +102,17 @@
 
 			</table>
 		</div>
+		<?php if(isset($msg)){?>
 		<div id="msg-return">
+			<input type='hidden' id='mensagem' value='<?php echo $msg; ?>'>
 			<?php echo $msg; ?>
 		</div>
+		<?php } ?>
 	</div>
 	<footer>			
 	</footer>
+	<script type="text/javascript">
+		$('#msg-return').delay(3000).fadeOut();
+	</script>
 </body>
 </html>
