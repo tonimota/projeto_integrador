@@ -78,7 +78,7 @@
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 						</div>
 						<select name='codArea' id='codArea'>
-						<?php while($area = odbc_fetch_array($stmt)){ print_r($area['codArea']);print_r($cod);
+						<?php while($area = odbc_fetch_array($stmt)){
 							if($area['codArea'] == $codArea){ ?>
 								<option selected value='<?php echo $area["codArea"]; ?>'><?php echo $area['descricao']; ?></option>
 							<?php }else{ ?>

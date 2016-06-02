@@ -9,10 +9,8 @@
 		header('Location: users.php');
 	}else{
 		$cod = $_GET['cod'];
-		$name = $_GET['nome'];
-		$email = $_GET['email'];
-		$type = $_GET['tipo'];
-		$senac_id = $_GET['senac_id'];
+		$stmt = odbc_exec($conn, "select * from Professor where codProfessor = $cod");
+		
 	}
 	
 	if(isset($_POST['update_user'])){
@@ -55,7 +53,7 @@
 	<header>
 		<?php if ($_SESSION['showMenu'] == true) {?>
 
-		<!--<nav>
+		<nav>
 			<ul>
 				<li><a href="users.php">Usuários</a></li>
 				<li><a href="area.php">Area</a></li>
@@ -63,7 +61,7 @@
 				<li><a href="tipo_questao.php">Tipo Questão</a></li>
 				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
 			</ul>
-		</nav>-->
+		</nav>
 
 		<?php }else{
 			echo 'sem menu';
@@ -73,27 +71,29 @@
 	<div id="element_to_pop_up">
 		<form id="update_user" name='frmUpdate' method='post' action=''>
 			<h3>Preencha os campos</h3>
+			
 			<ul>
+			<?php while($user = odbc_fetch_array($stmt)){?>
 				<li>
 					<div class="icon-form">
 						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 					</div>
-					<input type="text" placeholder="Nome" name='name' value='<?php echo $name; ?>'></input>
+					<input type="text" placeholder="Nome" name='name' value='<?php echo $user['nome']; ?>'></input>
 				</li>
 				<li>
 					<div class="icon-form">
 						<i class="fa fa fa-envelope" aria-hidden="true"></i>
 					</div>
-					<input type="email" placeholder="E-mail" name='email' value='<?php echo $email; ?>'></input>
+					<input type="email" placeholder="E-mail" name='email' value='<?php echo $user['email']; ?>'></input>
 				</li>
 				<li>
 					<div class="icon-form">
 						<i class="fa fa fa-envelope" aria-hidden="true"></i>
 					</div>
-					<input type="text" placeholder="ID Senac" name='senac_id' value='<?php echo $senac_id; ?>'></input>
+					<input type="text" placeholder="ID Senac" name='senac_id' value='<?php echo $user['idSenac']; ?>'></input>
 				</li>
 				<li id="button-contact-form_2">
-					<?php if($type == 'A'){?>
+					<?php if($user['tipo'] == 'A'){?>
 						<input type="radio" name='type' class="tipo_up" value="A" checked>
 						<label for="check1">A</label>
 						
@@ -107,8 +107,10 @@
 						<label for="check1">P</label>
 					<?php } ?>
 				</li>
+			<?php } ?>
 				<button type="submit" name="update_user">Salvar</button>			
 			</ul>
+			
 		</form>
 	</div>
 </div>

@@ -20,8 +20,9 @@
 		    
 		   	if ($rows > 0) {
 		   		$_SESSION['codProfessor'] = $result['codProfessor'];
-				$_SESSION['typeProfessor'] = $result['tipoProfessor'];
+				$_SESSION['typeProfessor'] = $result['tipo'];
 		   		$_SESSION['showMenu'] = true;
+				
 		   		header('Location: users.php');
 
 
@@ -44,7 +45,7 @@
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div id="container">
+<div id="container" style="margin-top:100px;">
 	<form method="post" action='' name='frmLogin'>
 		<div id="thumb">
 			<img src="img/default_large.png">			
