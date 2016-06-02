@@ -13,9 +13,7 @@
 		}else{
 			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser excluido";
 		}
-		
-		echo "<center>$msg</center>";
-			
+		echo "<center>$msg</center>";		
 	}
 	
 	if(isset($_GET['responseDelete'])){
@@ -26,8 +24,6 @@
 			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser excluido";
 		}
 		
-		echo "<center>$msg</center>";
-			
 	}
 	
 //CONSULTAS DB
@@ -63,7 +59,9 @@
 		}?>
 	</header>
 	<div id='wrapper'>
-		<a href="new_user.php" class='my-button'>Inserir Usuário</a>
+		<div id="btn-add">
+			<a href="new_user.php" class='myButton2'>Inserir Usuário</a>
+		</div>
 		<div class='table-holder'>
 			<table>
 				<tr>
@@ -97,6 +95,9 @@
 				<?php } ?>					
 
 			</table>
+		</div>
+		<div id="msg-return">
+			<?php echo $msg; ?>
 		</div>
 	</div>
 	<footer>			
