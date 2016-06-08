@@ -60,9 +60,11 @@
 		}?>
 	</header>
 	<div id='wrapper'>
+	<?php if($_SESSION['typeProfessor'] == 'A'){?>
 		<div class="btn-add">
 			<a href="new_assunto.php" class='myButton2'>Inserir Assunto</a>
 		</div>
+	<?php } ?>
 		<div class='table-holder'>
 			<table>
 				<tr>

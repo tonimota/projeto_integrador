@@ -92,6 +92,7 @@
 					</div>
 					<input type="text" placeholder="ID Senac" name='senac_id' value='<?php echo $user['idSenac']; ?>'></input>
 				</li>
+				<?php if($user['tipo'] == 'A'){?>
 				<li id="button-contact-form_2">
 					<?php if($user['tipo'] == 'A'){?>
 						<input type="radio" name='type' class="tipo_up" value="A" checked>
@@ -107,6 +108,7 @@
 						<label for="check1">P</label>
 					<?php } ?>
 				</li>
+				<?php } ?>
 			<?php } ?>
 				<button type="submit" name="update_user">Salvar</button>			
 			</ul>

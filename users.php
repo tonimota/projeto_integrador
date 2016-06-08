@@ -25,12 +25,12 @@
 		
 	}
 	
-	print_r("TIPO:".$_SESSION['typeProfessor']);
-	
 //CONSULTAS DB
 	// SELECT
-	
-	$stmt = odbc_exec($conn, "select * from Professor");
+	$count = odbc_exec($conn, "select count(*) from Professor");
+	$p = ;
+	$pp = 20;
+	$stmt = odbc_exec($conn, "select * from Professor order by nome offset(".(($pp * $count) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
 	
 ?>
 <html>
@@ -60,8 +60,13 @@
 		}?>
 	</header>
 	<div id='wrapper'>
+	<?php if($_SESSION['typeProfessor'] == 'A'){?>
 		<div class="btn-add">
 			<a href="new_user.php" class='myButton2'>Inserir Usuário</a>
+		</div>
+	<?php } ?>
+		
+		<div class="btn-add">
 			<a href="update_user.php?cod=<?php echo $_SESSION["codProfessor"] ?>" class='myButton2'>Alterar meus dados</a>
 		</div>
 		<div class='table-holder'>

@@ -37,9 +37,11 @@
 		}?>
 	</header>
 	<div id='wrapper'>
+	<?php if($_SESSION['typeProfessor'] == 'A'){?>
 		<div class="btn-add">
 			<a href="new_tipo_questao.php" class='myButton2'>Inserir Tipo de Questão</a>
 		</div>
+	<?php } ?>
 		<div class='table-holder'>
 			<table>
 				<tr>
