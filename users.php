@@ -25,12 +25,28 @@
 		
 	}
 	
+	
+	
 //CONSULTAS DB
 	// SELECT
-	$count = odbc_exec($conn, "select count(*) from Professor");
-	$p = ;
+	$count = odbc_exec($conn, "select count(*) as count from Professor");
+	$a = odbc_fetch_array($count);
+
+	$count = $a['count'];
+	if(isset($_GET['p'])){
+		$p = $_GET['p']; 
+	}else{
+		$p = 1;
+	}
+	
 	$pp = 20;
-	$stmt = odbc_exec($conn, "select * from Professor order by nome offset(".(($pp * $count) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
+	$stmt = odbc_exec($conn, "select * from Professor order by nome offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
+	$pages = $count/$pp;
+	
+	if(is_float ($pages)){
+		$pages = $pages + 1;
+	};
+
 	
 ?>
 <html>
@@ -107,6 +123,18 @@
 
 			</table>
 		</div>
+		<?php if($pages > 1 ){?>
+		<div>
+			<ul>
+				<?php for($i = 1; $i <= $pages; $i++){?>
+					<li>
+						<a href='users.php?p=<?php echo $i; ?>'><?php echo $i; ?></a>
+					</li>
+				<?php } ?>
+			</ul>
+		</div>
+		<?php } ?>
+		
 		<?php if(isset($msg)){?>
 		<div class="msg-return">
 			<?php echo "<div class='style-msg'>$msg</div>"; ?>

@@ -30,8 +30,26 @@
 			
 	}
 	
-	$stmt = odbc_exec($conn, "select ASS.codAssunto, ASS.descricao, AR.codArea, AR.descricao as area from assunto ASS inner join area AR on ASS.codArea = AR.codArea");
-?>
+	//$stmt = odbc_exec($conn, "select ASS.codAssunto, ASS.descricao, AR.codArea, AR.descricao as area from assunto ASS inner join area AR on ASS.codArea = AR.codArea");
+	$count = odbc_exec($conn, "select count(*) as count from Assunto");
+	$a = odbc_fetch_array($count);
+
+	$count = $a['count'];
+	if(isset($_GET['p'])){
+		$p = $_GET['p']; 
+	}else{
+		$p = 1;
+	}
+	
+	$pp = 20;
+	$stmt = odbc_exec($conn, "select ASS.codAssunto, ASS.descricao, AR.codArea, AR.descricao as area from assunto ASS inner join area AR on ASS.codArea = AR.codArea order by codAssunto offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
+	$pages = $count/$pp;
+	
+	if(is_float ($pages)){
+		$pages = $pages + 1;
+	};
+	
+	?>
 
 <html>
 <head>
@@ -103,6 +121,17 @@
 
 			</table>
 		</div>
+		<?php if($pages > 1 ){?>
+		<div>
+			<ul>
+				<?php for($i = 1; $i <= $pages; $i++){?>
+					<li>
+						<a href='users.php?p=<?php echo $i; ?>'><?php echo $i; ?></a>
+					</li>
+				<?php } ?>
+			</ul>
+		</div>
+		<?php } ?>
 	</div>
 	<footer>			
 	</footer>

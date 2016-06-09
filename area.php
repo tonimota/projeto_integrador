@@ -30,7 +30,25 @@
 			
 	}
 	
-	$stmt = odbc_exec($conn, "select * from Area");
+	// $stmt = odbc_exec($conn, "select * from Area");
+	
+	$count = odbc_exec($conn, "select count(*) as count from Area");
+	$a = odbc_fetch_array($count);
+
+	$count = $a['count'];
+	if(isset($_GET['p'])){
+		$p = $_GET['p']; 
+	}else{
+		$p = 1;
+	}
+	
+	$pp = 20;
+	$stmt = odbc_exec($conn, "select * from Area order by codArea offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
+	$pages = $count/$pp;
+	
+	if(is_float ($pages)){
+		$pages = $pages + 1;
+	};
 ?>
 
 <html>
@@ -99,6 +117,17 @@
 
 			</table>
 		</div>
+		<?php if($pages > 1 ){?>
+		<div>
+			<ul>
+				<?php for($i = 1; $i <= $pages; $i++){?>
+					<li>
+						<a href='users.php?p=<?php echo $i; ?>'><?php echo $i; ?></a>
+					</li>
+				<?php } ?>
+			</ul>
+		</div>
+		<?php } ?>
 	</div>
 	<footer>			
 	</footer>
