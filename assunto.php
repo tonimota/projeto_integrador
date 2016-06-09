@@ -1,8 +1,5 @@
 <?php
 	session_start();
-	if (!isset($_SESSION['showMenu'])) {
-		header('Location: index.php');
-	}
 
 	include 'db.php';
 	
@@ -30,7 +27,7 @@
 			
 	}
 	
-	//$stmt = odbc_exec($conn, "select ASS.codAssunto, ASS.descricao, AR.codArea, AR.descricao as area from assunto ASS inner join area AR on ASS.codArea = AR.codArea");
+	
 	$count = odbc_exec($conn, "select count(*) as count from Assunto");
 	$a = odbc_fetch_array($count);
 
@@ -43,11 +40,7 @@
 	
 	$pp = 20;
 	$stmt = odbc_exec($conn, "select ASS.codAssunto, ASS.descricao, AR.codArea, AR.descricao as area from assunto ASS inner join area AR on ASS.codArea = AR.codArea order by codAssunto offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
-	$pages = $count/$pp;
-	
-	if(is_float ($pages)){
-		$pages = $pages + 1;
-	};
+	$pages = ceil($count/$pp);
 	
 	?>
 
@@ -66,10 +59,10 @@
 		<?php if ($_SESSION['showMenu'] == true) {?>
 		<nav>
 			<ul>
-				<li><a href="users.php">Usuários</a></li>
-				<li><a href="area.php">Area</a></li>
+				<li><a href="users.php">Usu&aacute;rios</a></li>
+				<li><a href="area.php">&Aacute;rea</a></li>
 				<li><a href="assunto.php">Assunto</a></li>
-				<li><a href="tipo_questao.php">Tipo Questão</a></li>
+				<li><a href="tipo_questao.php">Tipo Quest&atilde;o</a></li>
 				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
 			</ul>
 		</nav>
