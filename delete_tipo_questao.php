@@ -2,9 +2,6 @@
 
 	session_start();
 	include 'db.php';
-	if (!isset($_SESSION['showMenu'])) {
-		header('Location: index.php');
-	}
 
 	if(!isset($_GET['cod'])){
 		header('Location: tipo_questao.php');
@@ -33,4 +30,5 @@
 		}
 		header ("Location: tipo_questao.php?responseDelete=$msg");
 	}
+	include 'menu.php';
 ?>

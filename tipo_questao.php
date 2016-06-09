@@ -1,8 +1,5 @@
 <?php
 	session_start();
-	if (!isset($_SESSION['showMenu'])) {
-		header('Location: index.php');
-	}
 
 	include 'db.php';
 
@@ -19,11 +16,7 @@
 	
 	$pp = 20;
 	$stmt = odbc_exec($conn, "select * from TipoQuestao order by codTipoQuestao offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
-	$pages = $count/$pp;
-	
-	if(is_float ($pages)){
-		$pages = $pages + 1;
-	};
+	$pages = ceil($count/$pp);
 ?>
 
 <html>
@@ -39,19 +32,7 @@
 </head>
 <body>
 	<header>
-		<?php if ($_SESSION['showMenu'] == true) {?>
-		<nav>
-			<ul>
-				<li><a href="users.php">Usuários</a></li>
-				<li><a href="area.php">Area</a></li>
-				<li><a href="assunto.php">Assunto</a></li>
-				<li><a href="tipo_questao.php">Tipo Questão</a></li>
-				<li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="logout.php"> Sair</a></li>
-			</ul>
-		</nav>
-		<?php }else{
-			echo 'sem menu';
-		}?>
+		<?php include 'menu.php'; ?>
 	</header>
 	<div id='wrapper'>
 	<?php if($_SESSION['typeProfessor'] == 'A'){?>
