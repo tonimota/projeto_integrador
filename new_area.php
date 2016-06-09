@@ -53,11 +53,20 @@
 			echo 'sem menu';
 		}?>
 	</header>
+	<div id="element_to_pop_up">
 	<div id="new_user">
 		<form method="POST" action='' name='frmUser'>
+		<ul>
+			<li>
+				<div class="icon-form">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+				</div>
 			<input type="text" name="description" id="description" placeholder="Descricao">
+			</li>
 			<button type="submit" name="new_area">Salvar</button>
+		</ul>
 		</form>
+	</div>
 	</div>
 </body>
 </html>

@@ -58,18 +58,42 @@
 			echo 'sem menu';
 		}?>
 	</header>
+	<div id="element_to_pop_up">
 	<div id="new_user">
 		<form method="POST" action='' name='frmUser'>
-			<input type="text" name="name" id="name" placeholder="name">
-			<input type="email" name="email" id="email" placeholder="e-mail">
-			<input type="password" name="senha" id="senha" placeholder="senha">
-			<input type="text" name="idSenac" id="idSenac" placeholder="idSenac">
-			<fieldset>
-			<input type="radio" name="tipo" id="tipo" value="A" checked>A
-			<input type="radio" name="tipo" id="tipo" value="P">P
-			</fieldset>
-			<button type="submit" name="new_user">Salvar</button>
-		</form>
+			<ul>
+				<li>
+					<div class="icon-form">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					</div>
+					<input type="text" name="name" id="name" placeholder="name">
+				</li>
+				<li>
+					<div class="icon-form">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					</div>
+				<input type="email" name="email" id="email" placeholder="e-mail">
+				</li>
+				<li>
+					<div class="icon-form">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					</div>
+				<input type="password" name="senha" id="senha" placeholder="senha">
+				</li>
+				<li>
+					<div class="icon-form">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					</div>
+				<input type="text" name="idSenac" id="idSenac" placeholder="idSenac">
+				</li>
+				<fieldset class="user_add">
+				<input type="radio" class='rad1' name="tipo" id="tipo" value="A" checked>A
+				</fieldset>
+				<fieldset class="user_add">
+				<input type="radio" class='rad1' name="tipo" id="tipo" value="P">P
+				</fieldset>
+				<button type="submit" name="new_user">Salvar</button>
+			</form>
 	</div>
 </body>
 </html>

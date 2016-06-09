@@ -53,12 +53,26 @@
 			echo 'sem menu';
 		}?>
 	</header>
+	<div id="element_to_pop_up">
 	<div id="new_user">
 		<form method="POST" action='' name='frmUser'>
+		<ul>
+			<li>
+				<div class="icon-form">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+				</div>
 			<input type="text" name="description" id="description" placeholder="Descricao">
+			</li>
+			<li>
+				<div class="icon-form">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+				</div>
 			<input type="text" name="cod_tipo_questao" id="cod_tipo_questao" placeholder="tipo questao">
+			</li>
 			<button type="submit" name="new_tipo_questao">Salvar</button>
+		</ul>
 		</form>
+	</div>
 	</div>
 </body>
 </html>

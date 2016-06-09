@@ -122,7 +122,7 @@
 			</table>
 		</div>
 		<?php if($pages > 1 ){?>
-		<div>
+		<div class="pages">
 			<ul>
 				<?php for($i = 1; $i <= $pages; $i++){?>
 					<li>
