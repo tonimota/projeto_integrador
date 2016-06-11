@@ -59,7 +59,7 @@
 			</li>
 			<select name='codArea' id='codArea'>
 			<?php while($area = odbc_fetch_array($stmt)){ ?>
-				<option value='<?php echo $area["codArea"]; ?>'><?php echo $area['descricao']; ?></option>
+				<option value='<?php echo $area["codArea"]; ?>'><?php echo utf8_encode($area['descricao']); ?></option>
 			<?php } ?>
 			</select>
 			<button type="submit" name="new_assunto">Salvar</button>

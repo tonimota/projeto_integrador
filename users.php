@@ -102,7 +102,7 @@
 				while($area = odbc_fetch_array($stmt)){ ?>
 					<tr>
 						<td>
-							<?php echo $area['nome']; ?>
+							<?php echo utf8_encode($area['nome']); ?>
 						</td>
 						<td>
 							<?php echo $area['email']; ?>

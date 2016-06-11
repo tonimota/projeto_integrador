@@ -95,7 +95,7 @@
 							<?php echo $area["codArea"];?>
 						</td>
 						<td>
-							<?php echo $area["descricao"]; ?>
+							<?php echo utf8_encode($area["descricao"]); ?>
 						</td>
 						<?php if($_SESSION['tipoProfessor'] == 'A'){?>
 						<td>

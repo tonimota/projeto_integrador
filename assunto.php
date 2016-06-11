@@ -111,7 +111,7 @@
 							<?php echo $assunto["codAssunto"];?>
 						</td>
 						<td>
-							<?php echo $assunto["descricao"]; ?>
+							<?php echo utf8_encode($assunto["descricao"]);?>
 						</td>
 						<td>
 							<?php echo $assunto["codArea"]; ?>

@@ -66,7 +66,7 @@
 							<?php echo $tipo_questao["codTipoQuestao"];?>
 						</td>
 						<td>
-							<?php echo $tipo_questao["descricao"]; ?>
+							<?php echo utf8_encode($tipo_questao["descricao"]); ?>
 						</td>
 						
 					</tr>
