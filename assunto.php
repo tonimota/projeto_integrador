@@ -10,9 +10,7 @@
 		}else{
 			$msg = "Erro ao conectar com o banco de dados";
 		}
-		
-		echo "<center>$msg</center>";
-			
+					
 	}
 	
 	if(isset($_GET['responseDelete'])){
@@ -22,8 +20,6 @@
 		}else{
 			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser exclu&iacute;do";
 		}
-		
-		echo "<center>$msg</center>";
 			
 	}
 	
@@ -161,6 +157,11 @@
 					<?php } ?>
 				<?php } ?>
 			</ul>
+		</div>
+		<?php } ?>
+		<?php if(isset($msg)){?>
+		<div class="msg-return">
+			<?php echo "<div class='style-msg'>$msg</div>"; ?>
 		</div>
 		<?php } ?>
 	</div>
