@@ -162,7 +162,7 @@
 	<footer>			
 	</footer>
 	<script type="text/javascript">
-		$('.msg-return').delay(2000).fadeOut();
+		$('.msg-return').delay(200000).fadeOut();
 	</script>
 </body>
 </html>
