@@ -2,6 +2,9 @@
 
 	session_start();
 	include 'db.php';
+	if($_SESSION['typeProfessor'] != 'A'){
+		header('Location: tipo_questao.php');
+	}
 
 	if(isset($_POST['new_tipo_questao'])) {
 
@@ -10,10 +13,13 @@
 
 		if (empty($description) || empty($cod_tipo_questao)) {
 
-			$error = "<br><br><br><br><br><br>Preencha os campos";
-			print_r($error);
+			$msg = "Preencha os campos";
 
-		} else {
+		} elseif(strlen($cod_tipo_questao) > 1){
+
+			$msg = "Tipo s&oacute; ter um caractere";
+
+		}else{
 			$query = " INSERT INTO TipoQuestao (codTipoQuestao, descricao) VALUES ('$cod_tipo_questao', '$description')";
 
 			$exec = odbc_exec($conn, $query);
@@ -49,13 +55,13 @@
 				<div class="icon-form">
 					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 				</div>
-			<input type="text" name="description" id="description" placeholder="Descricao">
+				<input type="text" name="description" id="description" placeholder="Descri&ccedil;&atilde;o">
 			</li>
 			<li>
 				<div class="icon-form">
 					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 				</div>
-			<input type="text" name="cod_tipo_questao" id="cod_tipo_questao" placeholder="tipo questao">
+				<input type="text" name="cod_tipo_questao" id="cod_tipo_questao" placeholder="Tipo">
 			</li>
 			<button type="submit" name="new_tipo_questao">Salvar</button>
 		</ul>

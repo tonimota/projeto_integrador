@@ -2,7 +2,9 @@
 
 	session_start();
 	include 'db.php';
-
+	if($_SESSION['typeProfessor'] != 'A'){
+		header('Location: assunto.php');
+	}
 
 	if(!isset($_GET['cod'])){
 		header('Location: assunto.php');

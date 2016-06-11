@@ -1,7 +1,9 @@
 <?php
 	session_start();
 	include 'db.php';
-
+	if($_SESSION['typeProfessor'] != 'A'){
+		header('Location: area.php');
+	}
 
 	if(!isset($_GET['cod'])){
 		header('Location: users.php');
@@ -15,7 +17,7 @@
 		
 		if (empty($description)) {
 			
-			$error = "<br><br><br><br><br><br>Erro ao Inserir dados";
+			$error = "<br><br><br><br><br><br>Preencha o(s) campo(s)";
 			print_r($error);
 		}else{
 			
@@ -55,7 +57,7 @@
 						<div class="icon-form">
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 						</div>
-						<input type="text" placeholder="Descricao" name='description' value='<?php echo $description; ?>'></input>
+						<input type="text" placeholder="descri&ccedil;&atilde;o" name='description' value='<?php echo $description; ?>'></input>
 					</li>
 					<button type="submit" name="update_area">Salvar</button>			
 				</ul>

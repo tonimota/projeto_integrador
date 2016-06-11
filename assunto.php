@@ -18,9 +18,9 @@
 	if(isset($_GET['responseDelete'])){
 		$response = $_GET['responseDelete'];
 		if($response != 0){
-			$msg = "Excluido com sucesso";
+			$msg = "Exclu&iacute;do com sucesso";
 		}else{
-			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser excluido";
+			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser exclu&iacute;do";
 		}
 		
 		echo "<center>$msg</center>";
@@ -100,8 +100,8 @@
 			<table>
 				<tr>
 					<th>ID</th>
-					<th>Descricao</th>
-					<th>Area</th>
+					<th>Descri&ccedil;&atilde;o</th>
+					<th>&Aacute;rea</th>
 					<?php if($_SESSION['typeProfessor'] == 'A'){?>
 					<th>Alterar</th>
 					<th>Excluir</th>
@@ -166,5 +166,8 @@
 	</div>
 	<footer>			
 	</footer>
+	<script type="text/javascript">
+		$('.msg-return').delay(2000).fadeOut();
+	</script>
 </body>
 </html>

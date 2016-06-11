@@ -2,6 +2,9 @@
 
 	session_start();
 	include 'db.php';
+	if($_SESSION['typeProfessor'] != 'A'){
+		header('Location: users.php');
+	}
 
 	if(isset($_POST['new_user'])) {
 
@@ -60,25 +63,25 @@
 					<div class="icon-form">
 						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 					</div>
-				<input type="email" name="email" id="email" placeholder="e-mail">
+					<input type="email" name="email" id="email" placeholder="e-mail">
 				</li>
 				<li>
 					<div class="icon-form">
 						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 					</div>
-				<input type="password" name="senha" id="senha" placeholder="senha">
+					<input type="password" name="senha" id="senha" placeholder="senha">
 				</li>
 				<li>
 					<div class="icon-form">
 						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 					</div>
-				<input type="text" name="idSenac" id="idSenac" placeholder="idSenac">
+					<input type="text" name="idSenac" id="idSenac" placeholder="idSenac">
 				</li>
 				<fieldset class="user_add">
-				<input type="radio" class='rad1' name="tipo" id="tipo" value="A" checked>A
+					<input type="radio" class='rad1' name="tipo" id="tipo" value="A" checked>A
 				</fieldset>
 				<fieldset class="user_add">
-				<input type="radio" class='rad1' name="tipo" id="tipo" value="P">P
+					<input type="radio" class='rad1' name="tipo" id="tipo" value="P">P
 				</fieldset>
 				<button type="submit" name="new_user">Salvar</button>
 			</form>

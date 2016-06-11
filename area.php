@@ -11,24 +11,16 @@
 		}else{
 			$msg = "Erro ao conectar com o banco de dados";
 		}
-		
-		echo "<center>$msg</center>";
-			
 	}
 	
 	if(isset($_GET['responseDelete'])){
 		$response = $_GET['responseDelete'];
 		if($response != 0){
-			$msg = "Excluido com sucesso";
+			$msg = "Exclu&iacute;do com sucesso";
 		}else{
-			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser excluido";
+			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser exclu&iacute;do";
 		}
-		
-		echo "<center>$msg</center>";
-			
 	}
-	
-	// $stmt = odbc_exec($conn, "select * from Area");
 	
 	$pp = 20;
 	if(isset($_GET['p'])){
@@ -58,7 +50,7 @@
 
 <html>
 <head>
-	<title>Area</title>
+	<title>&Aacute;rea</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -89,7 +81,7 @@
 			<table>
 				<tr>
 					<th>ID</th>
-					<th>Descricao</th>
+					<th>Descri&ccedil;&atilde;o</th>
 					<?php if($_SESSION['typeProfessor'] == 'A'){?>
 					<th>Alterar</th>
 					<th>Excluir</th>
@@ -148,8 +140,16 @@
 			</ul>
 		</div>
 		<?php } ?>
+		<?php if(isset($msg)){?>
+		<div class="msg-return">
+			<?php echo "<div class='style-msg'>$msg</div>"; ?>
+		</div>
+		<?php } ?>
 	</div>
 	<footer>			
 	</footer>
+	<script type="text/javascript">
+		$('.msg-return').delay(2000).fadeOut();
+	</script>
 </body>
 </html>
