@@ -26,22 +26,32 @@
 	
 //CONSULTAS DB
 	// SELECT
-	$count = odbc_exec($conn, "select count(*) as count from Professor");
-	$a = odbc_fetch_array($count);
-
-	$count = $a['count'];
+	$pp = 20;
 	if(isset($_GET['p'])){
 		$p = $_GET['p']; 
 	}else{
 		$p = 1;
 	}
+	if (isset($_POST['search_'])){
+		$ser_btn = $_POST['search'];
+		$stmt = odbc_exec($conn, "select * from Professor where nome like '%$ser_btn%' order by nome offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
+		$count = odbc_exec($conn, "select count(*) as count from Professor where nome like '%$ser_btn%'");
+	}elseif(isset($_GET['s'])){
+		$ser_btn = $_POST['search'];
+		$stmt = odbc_exec($conn, "select * from Professor where nome like '%$ser_btn%' order by nome offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
+		$count = odbc_exec($conn, "select count(*) as count from Professor where nome like '%$ser_btn%'");
+	}else {
+		$stmt = odbc_exec($conn, "select * from Professor order by nome offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
+		$count = odbc_exec($conn, "select count(*) as count from Professor");
+	}
+
+	$a = odbc_fetch_array($count);
+
+	$count = $a['count'];
 	
-	$pp = 20;
-	$stmt = odbc_exec($conn, "select * from Professor order by nome offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
 	$pages = ceil($count/$pp);
 
 
-	
 ?>
 <html>
 <head>
@@ -58,15 +68,23 @@
 		<?php include 'menu.php'; ?>
 	</header>
 	<div id='wrapper'>
-	<?php if($_SESSION['typeProfessor'] == 'A'){?>
-		<div class="btn-add">
-			<a href="new_user.php" class='myButton2'>Inserir Usuário</a>
+	<section class='btn-action'>
+		<div class='action'>
+			<?php if($_SESSION['typeProfessor'] == 'A'){?>
+				<div class="btn-add">
+					<a href="new_user.php" class='myButton2'>Inserir Usuário</a>
+				</div>
+			<?php } ?>
+			<div class="btn-add">
+				<a href="update_user.php?cod=<?php echo $_SESSION["codProfessor"] ?>" class='myButton2'>Alterar meus dados</a>
+			</div>
 		</div>
-	<?php } ?>
-		
-		<div class="btn-add">
-			<a href="update_user.php?cod=<?php echo $_SESSION["codProfessor"] ?>" class='myButton2'>Alterar meus dados</a>
-		</div>
+		<form class='action -off' method="POST">
+			<i class="fa fa-search fa-1x" aria-hidden="true"></i>
+			<input type="text" name="search">
+			<input type='submit' name="search_">
+		</form>
+	</section>
 		<div class='table-holder'>
 			<table>
 				<tr>
@@ -108,10 +126,28 @@
 		<?php if($pages > 1 ){?>
 		<div class="pages">
 			<ul>
-				<?php for($i = 1; $i <= $pages; $i++){?>
-					<li>
-						<a href='users.php?p=<?php echo $i; ?>'><?php echo $i; ?></a>
-					</li>
+				<?php for($i = 1; $i <= $pages; $i++){ 
+					if ($i == $p) {
+						if (isset($_POST['search_']) || isset($_GET['s'])){?>
+							<li>
+								<a class='page-active' href="users.php?p=<?php echo $i; ?>&s=<?php echo $ser_btn?>"><?php echo $i; ?></a>
+							</li>
+						<?php }else{ ?>
+							<li>
+								<a class='page-active' href="users.php?p=<?php echo $i; ?>"><?php echo $i; ?></a>
+							</li>
+						<?php } ?>
+					<?php } else { 
+						if (isset($_POST['search_']) || isset($_GET['s'])){?>
+							<li>
+								<a href="users.php?p=<?php echo $i; ?>&s=<?php echo $ser_btn?>"><?php echo $i; ?></a>
+							</li>
+						<?php }else{ ?>
+							<li>
+								<a href='users.php?p=<?php echo $i; ?>'><?php echo $i; ?></a>
+							</li>
+						<?php } ?>	
+					<?php } ?>
 				<?php } ?>
 			</ul>
 		</div>
