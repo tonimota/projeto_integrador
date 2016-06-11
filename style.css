@@ -343,6 +343,7 @@ nav ul li {
     height:40px; 
     width:300px; 
     padding:5px 8px;
+    box-sizing: border-box;
     margin-bottom: 5px;
     text-align: left;
     font-family: "Roboto",sans‐serif;
