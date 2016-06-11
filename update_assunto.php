@@ -1,7 +1,9 @@
 <?php
 	session_start();
 	include 'db.php';
-
+	if($_SESSION['typeProfessor'] != 'A'){
+		header('Location: assunto.php');
+	}
 
 	if(!isset($_GET['cod'])){
 		header('Location: users.php');
@@ -17,7 +19,7 @@
 		
 		if (empty($description)) {
 			
-			$error = "<br><br><br><br><br><br>Erro ao Inserir dados";
+			$error = "<br><br><br><br><br><br>Preencha o(s) campo(s)";
 			print_r($error);
 		}else{
 			
@@ -57,7 +59,7 @@
 						<div class="icon-form">
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 						</div>
-						<input type="text" placeholder="Descricao" name='description' value='<?php echo $description; ?>'></input>
+						<input type="text" placeholder="descri&ccedil;&atilde;o" name='description' value='<?php echo $description; ?>'></input>
 					</li>
 					<li>
 						<div class="icon-form">
@@ -68,7 +70,7 @@
 							if($area['codArea'] == $codArea){ ?>
 								<option selected value='<?php echo $area["codArea"]; ?>'><?php echo $area['descricao']; ?></option>
 							<?php }else{ ?>
-								<option value='<?php echo $area["codArea"]; ?>'><?php echo $area['descricao']; ?></option>
+								<option value='<?php echo $area["codArea"]; ?>'><?php echo $area['descricaoo']; ?></option>
 							<?php } ?>
 							
 						<?php } ?>

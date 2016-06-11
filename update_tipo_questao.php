@@ -1,12 +1,15 @@
 <?php
 	session_start();
 	include 'db.php';
+	if($_SESSION['typeProfessor'] != 'A'){
+		header('Location: tipo_questao.php');
+	}
 
 	if(!isset($_GET['cod'])){
 		header('Location: tipo_questao.php');
 	}else{
 		$cod = $_GET['cod'];
-		$description = $_GET['description'];
+		
 	}
 	
 	if(isset($_POST['update_tipo_questao'])){
@@ -14,21 +17,21 @@
 		
 		if (empty($description)) {
 			
-			$error = "<br><br><br><br><br><br>Erro ao Inserir dados";
-			print_r($error);
+			$msg = "";
 		}else{
 			
-			$query = odbc_prepare($conn, "UPDATE TipoQuestao set descricao=? where codTipoQuestao=? ");
-			$exec = odbc_execute($query, array($description, $cod));
-			echo odbc_errormsg($conn);
+			$query = odbc_prepare($conn, "UPDATE TipoQuestao set codTipoQuestao=?, descricao=? where codTipoQuestao=? ");
+			$exec = odbc_execute($query, array($cod, $description, $cod));
+
 			if($exec){
-				$mensag = "<br><br><br><br><br><br>Você alterou com sucesso<br>";
+				$msg = "1";
 			}else{
-				$mensag = '<br><br><br><br><br><br>Erro<br>';
+				$msg = "0";
 			}
-			
+			//header ("Location: tipo_questao.php?response=$msg");	
 		}
 	}
+	$stmt = odbc_exec($conn, "select codTipoQuestao, descricao from TipoQuestao where codTipoQuestao = '$cod'");
 	
 ?>
 <html>
@@ -48,12 +51,20 @@
 		<form id="update_tipo_questao" name='frmUpdate' method='post' action=''>
 			<h3>Preencha os campos</h3>
 			<ul>
+				<?php while($tipo_questao = odbc_fetch_array($stmt)){ ?>
 				<li>
 					<div class="icon-form">
 						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 					</div>
-					<input type="text" placeholder="Descricao" name='description' value='<?php echo $description; ?>'></input>
+					<input type="text" placeholder="descri&ccedil;&atilde;o" name='description' value='<?php echo $tipo_questao["descricao"]; ?>'></input>
 				</li>
+				<li>
+					<div class="icon-form">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					</div>
+					<input type="text" name="cod_tipo_questao" placeholder="Tipo" value='<?php echo $tipo_questao["codTipoQuestao"]; ?>'>
+				</li>
+				<?php } ?>
 				<button type="submit" name="update_tipo_questao">Salvar</button>			
 			</ul>
 		</form>

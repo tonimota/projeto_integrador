@@ -1,13 +1,15 @@
 <?php
 	session_start();
 	include 'db.php';
+	if($_SESSION['typeProfessor'] != 'A'){
+		header('Location: users.php');
+	}
 
 	if(!isset($_GET['cod'])){
 		header('Location: users.php');
 	}else{
 		$cod = $_GET['cod'];
 		$stmt = odbc_exec($conn, "select * from Professor where codProfessor = $cod");
-		
 	}
 	
 	if(isset($_POST['update_user'])){
@@ -18,7 +20,7 @@
 		
 		if (empty($name) or empty($email) or empty($type)) {
 			
-			$error = "<br><br><br><br><br><br>Erro ao Inserir dados";
+			$error = "<br><br><br><br><br><br>Preencha o(s) campo(s)";
 			print_r($error);
 		}else{
 			
@@ -31,7 +33,6 @@
 				$msg = "0";
 			}
 			header ("Location: users.php?response=$msg");
-			
 		}
 	}
 	
@@ -75,7 +76,7 @@
 					</div>
 					<input type="text" placeholder="ID Senac" name='senac_id' value='<?php echo $user['idSenac']; ?>'></input>
 				</li>
-				<?php if($user['tipo'] == 'A'){?>
+				<?php if($_SESSION['typeProfessor'] == 'A'){?>
 				<li id="button-contact-form_2">
 					<?php if($user['tipo'] == 'A'){?>
 						<input type="radio" name='type' class="tipo_up" value="A" checked>

@@ -2,6 +2,9 @@
 
 	session_start();
 	include 'db.php';
+	if($_SESSION['typeProfessor'] != 'A'){
+		header('Location: area.php');
+	}
 
 	if(isset($_POST['new_area'])) {
 
@@ -9,7 +12,7 @@
 
 		if (empty($description)) {
 
-			$error = "<br><br><br><br><br><br>Preecha a descricao";
+			$error = "<br><br><br><br><br><br>Preecha a descri&ccedil;&atilde;o";
 			print_r($error);
 
 		} else {
@@ -49,7 +52,7 @@
 				<div class="icon-form">
 					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 				</div>
-			<input type="text" name="description" id="description" placeholder="Descricao">
+			<input type="text" name="description" id="description" placeholder="descri&ccedil;&atilde;o">
 			</li>
 			<button type="submit" name="new_area">Salvar</button>
 		</ul>

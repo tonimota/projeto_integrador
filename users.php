@@ -15,11 +15,10 @@
 	if(isset($_GET['responseDelete'])){
 		$response = $_GET['responseDelete'];
 		if($response != 0){
-			$msg = "Excluido com sucesso";
+			$msg = "Exclu&iacute;do com sucesso";
 		}else{
-			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser excluido";
+			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser exclu&iacute;do";
 		}
-		
 	}
 	
 	
@@ -73,6 +72,7 @@
 					<th>Nome</th>
 					<th>E-mail</th>
 					<th>Tipo</th>
+					<th>ID Senac</th>
 					<?php if($_SESSION['typeProfessor'] == 'A'){?>
 					<th>Alterar</th>
 					<th>Excluir</th>
@@ -90,6 +90,9 @@
 						</td>
 						<td>
 							<?php echo $area['tipo']; ?>
+						</td>
+						<td>
+							<?php echo $area['idSenac']; ?>
 						</td>
 						<?php if($_SESSION['typeProfessor'] == 'A'){?>
 						<td>
