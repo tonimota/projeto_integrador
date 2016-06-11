@@ -39,7 +39,7 @@
 		$stmt = odbc_exec($conn, "select * from Assunto where descricao like '%$ser_btn%' order by descricao offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
 		$count = odbc_exec($conn, "select count(*) as count from Assunto where descricao like '%$ser_btn%'");
 	}else{
-		$stmt = odbc_exec($conn, "select * from Assunto order by descricao offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
+		$stmt = odbc_exec($conn, "select a.codAssunto, a.descricao, ar.descricao as area from Assunto a inner join Area ar on a.codArea = ar.codArea order by descricao offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
 		$count = odbc_exec($conn, "select count(*) as count from Assunto");
 	}
 
@@ -114,11 +114,11 @@
 							<?php echo $assunto["descricao"]; ?>
 						</td>
 						<td>
-							<?php echo $assunto["codArea"]; ?>
+							<?php echo $assunto["area"]; ?>
 						</td>
 						<?php if($_SESSION['tipoProfessor'] == 'A'){?>
 						<td>
-							<a href='update_assunto.php?cod=<?php echo $assunto["codAssunto"] ?>&codArea=<?php echo $assunto['codArea']?>&description=<?php echo $assunto['descricao']; ?>'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+							<a href='update_assunto.php?cod=<?php echo $assunto["codAssunto"] ?>&codArea=<?php echo $assunto['area']?>&description=<?php echo $assunto['descricao']; ?>'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
 						</td>
 						<td>
 							<a class='delete' href='delete_assunto.php?cod=<?php echo $assunto["codAssunto"] ?>'><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>

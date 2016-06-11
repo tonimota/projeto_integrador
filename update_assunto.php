@@ -68,7 +68,7 @@
 						</div>
 						<select name='codArea' id='codArea'>
 						<?php while($area = odbc_fetch_array($stmt)){
-							if($area['codArea'] == $codArea){ ?>
+							if($area['descricao'] == $codArea){ ?>
 								<option selected value='<?php echo $area["codArea"]; ?>'><?php echo $area['descricao']; ?></option>
 							<?php }else{ ?>
 								<option value='<?php echo $area["codArea"]; ?>'><?php echo $area['descricao']; ?></option>
