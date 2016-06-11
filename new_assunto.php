@@ -32,7 +32,7 @@
 	
 	$stmt = odbc_exec($conn, "select * from Assunto");
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Novo Assunto</title>

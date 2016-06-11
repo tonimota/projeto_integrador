@@ -37,6 +37,7 @@
 	}
 	
 ?>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Editar</title>
@@ -72,7 +73,7 @@
 				</li>
 				<li>
 					<div class="icon-form">
-						<i class="fa fa fa-envelope" aria-hidden="true"></i>
+						<i class="fa fa fa-hashtag" aria-hidden="true"></i>
 					</div>
 					<input type="text" placeholder="ID Senac" name='senac_id' value='<?php echo $user['idSenac']; ?>'></input>
 				</li>

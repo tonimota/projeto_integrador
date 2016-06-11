@@ -47,7 +47,7 @@
 	
 	$pages = ceil($count/$pp);
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
 	<title>&Aacute;rea</title>
@@ -145,9 +145,10 @@
 			<?php echo "<div class='style-msg'>$msg</div>"; ?>
 		</div>
 		<?php } ?>
+		<footer>
+			<p><a href="documentacao_pi.pdf" target="blank_">Manual do usuário</a></p>
+		</footer>
 	</div>
-	<footer>			
-	</footer>
 	<script type="text/javascript">
 		$('.msg-return').delay(2000).fadeOut();
 	</script>

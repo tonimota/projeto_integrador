@@ -34,6 +34,7 @@
 	$stmt = odbc_exec($conn, "select codTipoQuestao, descricao from TipoQuestao where codTipoQuestao = '$cod'");
 	
 ?>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Editar</title>

@@ -51,6 +51,7 @@
 
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Usuarios</title>
@@ -66,23 +67,23 @@
 		<?php include 'menu.php'; ?>
 	</header>
 	<div id='wrapper'>
-	<section class='btn-action'>
-		<div class='action'>
-			<?php if($_SESSION['typeProfessor'] == 'A'){?>
+		<section class='btn-action'>
+			<div class='action'>
+				<?php if($_SESSION['typeProfessor'] == 'A'){?>
+					<div class="btn-add">
+						<a href="new_user.php" class='myButton2'>Inserir Usuário</a>
+					</div>
+				<?php } ?>
 				<div class="btn-add">
-					<a href="new_user.php" class='myButton2'>Inserir Usuário</a>
+					<a href="update_user.php?cod=<?php echo $_SESSION["codProfessor"] ?>" class='myButton2'>Alterar meus dados</a>
 				</div>
-			<?php } ?>
-			<div class="btn-add">
-				<a href="update_user.php?cod=<?php echo $_SESSION["codProfessor"] ?>" class='myButton2'>Alterar meus dados</a>
 			</div>
-		</div>
-		<form class='action -off' method="POST">
-			<i class="fa fa-search fa-1x" aria-hidden="true"></i>
-			<input type="text" name="search">
-			<input type='submit' name="search_">
-		</form>
-	</section>
+			<form class='action -off' method="POST">
+				<i class="fa fa-search fa-1x" aria-hidden="true"></i>
+				<input type="text" name="search">
+				<input type='submit' name="search_">
+			</form>
+		</section>
 		<div class='table-holder'>
 			<table>
 				<tr>
@@ -94,7 +95,7 @@
 					<th>Alterar</th>
 					<th>Excluir</th>
 					<?php } ?>
-				<tr>
+				</tr>
 			<?php
 			
 				while($area = odbc_fetch_array($stmt)){ ?>
@@ -160,9 +161,10 @@
 			<?php echo "<div class='style-msg'>$msg</div>"; ?>
 		</div>
 		<?php } ?>
+		<footer>
+			<p><a href="documentacao_pi.pdf" target="blank_">Manual do usuário</a></p>
+		</footer>
 	</div>
-	<footer>			
-	</footer>
 	<script type="text/javascript">
 		$('.msg-return').delay(2000).fadeOut();
 	</script>

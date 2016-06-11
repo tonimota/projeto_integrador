@@ -34,7 +34,7 @@
 		}
 	}
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Novo Tipo de Questão</title>

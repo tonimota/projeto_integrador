@@ -36,6 +36,7 @@
 	}
 	$stmt = odbc_exec($conn, "select * from Area");
 ?>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Editar</title>

@@ -49,7 +49,7 @@
 	
 	$pages = ceil($count/$pp);
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -141,15 +141,16 @@
 			</ul>
 		</div>
 		<?php } ?>
-		
+	
+		<footer>
+			<p><a href="documentacao_pi.pdf" target="blank_">Manual do usuário</a></p>
+		</footer>
 	</div>
 	<?php if(isset($msg)){?>
 		<div class="msg-return">
 			<?php echo "<div class='style-msg'>$msg</div>"; ?>
 		</div>
 	<?php } ?>
-	<footer>			
-	</footer>
 	<script type="text/javascript">
 		$('.msg-return').delay(2000).fadeOut();
 	</script>
