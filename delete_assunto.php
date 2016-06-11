@@ -33,5 +33,5 @@
 		}
 		header ("Location: assunto.php?responseDelete=$msg");
 	}
-	<?php include 'menu.php'; ?>
+	include 'menu.php'; 
 ?>
