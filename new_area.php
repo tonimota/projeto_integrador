@@ -32,7 +32,7 @@
 
 <html>
 <head>
-	<title>Nova Area</title>
+	<title>Nova &Aacute;rea</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -52,7 +52,7 @@
 				<div class="icon-form">
 					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 				</div>
-			<input type="text" name="description" id="description" placeholder="descri&ccedil;&atilde;o">
+			<input type="text" name="description" id="description" placeholder="Descri&ccedil;&atilde;o">
 			</li>
 			<button type="submit" name="new_area">Salvar</button>
 		</ul>

@@ -51,6 +51,7 @@
 
 
 ?>
+
 <html>
 <head>
 	<title>Usuarios</title>
@@ -66,23 +67,23 @@
 		<?php include 'menu.php'; ?>
 	</header>
 	<div id='wrapper'>
-	<section class='btn-action'>
-		<div class='action'>
-			<?php if($_SESSION['tipoProfessor'] == 'A'){?>
+		<section class='btn-action'>
+			<div class='action'>
+				<?php if($_SESSION['tipoProfessor'] == 'A'){?>
+					<div class="btn-add">
+						<a href="new_user.php" class='myButton2'>Inserir Usuário</a>
+					</div>
+				<?php } ?>
 				<div class="btn-add">
-					<a href="new_user.php" class='myButton2'>Inserir Usuário</a>
+					<a href="update_user.php?cod=<?php echo $_SESSION["codProfessor"] ?>" class='myButton2'>Alterar meus dados</a>
 				</div>
-			<?php } ?>
-			<div class="btn-add">
-				<a href="update_user.php?cod=<?php echo $_SESSION["codProfessor"] ?>" class='myButton2'>Alterar meus dados</a>
 			</div>
-		</div>
-		<form class='action -off' method="POST">
-			<i class="fa fa-search fa-1x" aria-hidden="true"></i>
-			<input type="text" name="search">
-			<input type='submit' name="search_">
-		</form>
-	</section>
+			<form class='action -off' method="POST">
+				<i class="fa fa-search fa-1x" aria-hidden="true"></i>
+				<input type="text" name="search">
+				<input type='submit' name="search_">
+			</form>
+		</section>
 		<div class='table-holder'>
 			<table>
 				<tr>
@@ -94,7 +95,7 @@
 					<th>Alterar</th>
 					<th>Excluir</th>
 					<?php } ?>
-				<tr>
+				</tr>
 			<?php
 			
 				while($area = odbc_fetch_array($stmt)){ ?>
@@ -143,6 +144,7 @@
 						if (isset($_POST['search_']) || isset($_GET['s'])){?>
 							<li>
 								<a href="users.php?p=<?php echo $i; ?>&s=<?php echo $ser_btn?>"><?php echo $i; ?></a>
+
 							</li>
 						<?php }else{ ?>
 							<li>
@@ -152,7 +154,9 @@
 					<?php } ?>
 				<?php } ?>
 			</ul>
+
 		</div>
+
 		<?php } ?>
 		
 		<?php if(isset($msg)){?>
@@ -160,8 +164,9 @@
 			<?php echo "<div class='style-msg'>$msg</div>"; ?>
 		</div>
 		<?php } ?>
+
 	</div>
-	<footer>			
+	<footer>		
 	</footer>
 	<script type="text/javascript">
 		$('.msg-return').delay(2000).fadeOut();

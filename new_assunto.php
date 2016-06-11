@@ -55,7 +55,7 @@
 				<div class="icon-form">
 					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 				</div>
-			<input type="text" name="description" id="description" placeholder="descri&ccedil;&atilde;o">
+			<input type="text" name="description" id="description" placeholder="Descri&ccedil;&atilde;o">
 			</li>
 			<select name='codArea' id='codArea'>
 			<?php while($area = odbc_fetch_array($stmt)){ ?>
