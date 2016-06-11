@@ -23,8 +23,7 @@
 	
 	
 	
-//CONSULTAS DB
-	// SELECT
+//CONSULTAS DB	SELECT
 	$pp = 20;
 	if(isset($_GET['p'])){
 		$p = $_GET['p']; 
@@ -165,7 +164,7 @@
 	<footer>			
 	</footer>
 	<script type="text/javascript">
-		$('.msg-return').delay(200000).fadeOut();
+		$('.msg-return').delay(2000).fadeOut();
 	</script>
 </body>
 </html>

@@ -18,7 +18,7 @@
 		if($response != 0){
 			$msg = "Exclu&iacute;do com sucesso";
 		}else{
-			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser exclu&iacute;do";
+			$msg = "O registro est&aacute; sendo usado em outra tabela, portanto nao pode ser exclu&iacute;do";
 		}
 	}
 	

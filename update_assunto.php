@@ -70,7 +70,7 @@
 							if($area['codArea'] == $codArea){ ?>
 								<option selected value='<?php echo $area["codArea"]; ?>'><?php echo $area['descricao']; ?></option>
 							<?php }else{ ?>
-								<option value='<?php echo $area["codArea"]; ?>'><?php echo $area['descricaoo']; ?></option>
+								<option value='<?php echo $area["codArea"]; ?>'><?php echo $area['descricao']; ?></option>
 							<?php } ?>
 							
 						<?php } ?>
