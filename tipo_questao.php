@@ -21,18 +21,32 @@
 		}	
 	}
 
-	$count = odbc_exec($conn, "select count(*) as count from TipoQuestao");
-	$a = odbc_fetch_array($count);
 
-	$count = $a['count'];
+
+	$pp = 20;
+
 	if(isset($_GET['p'])){
 		$p = $_GET['p']; 
 	}else{
 		$p = 1;
 	}
+	if (isset($_POST['search_'])){
+		$ser_btn = $_POST['search'];
+		$stmt = odbc_exec($conn, "select * from TipoQuestao where descricao like '%$ser_btn%' order by descricao offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
+		$count = odbc_exec($conn, "select count(*) as count from TipoQuestao where descricao like '%$ser_btn%'");
+	}elseif(isset($_GET['s'])){
+		$ser_btn = $_GET['s'];
+		$stmt = odbc_exec($conn, "select * from TipoQuestao where descricao like '%$ser_btn%' order by descricao offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
+		$count = odbc_exec($conn, "select count(*) as count from TipoQuestao where descricao like '%$ser_btn%'");
+	}else{
+		$stmt = odbc_exec($conn, "select * from TipoQuestao order by descricao offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
+		$count = odbc_exec($conn, "select count(*) as count from TipoQuestao");
+	}
 	
-	$pp = 20;
-	$stmt = odbc_exec($conn, "select * from TipoQuestao order by codTipoQuestao offset(".(($pp * $p) - $pp).") ROWS FETCH NEXT (".$pp.") ROWS ONLY");
+	$a = odbc_fetch_array($count);
+
+	$count = $a['count'];
+	
 	$pages = ceil($count/$pp);
 ?>
 
@@ -50,11 +64,20 @@
 		<?php include 'menu.php'; ?>
 	</header>
 	<div id='wrapper'>
-	<?php if($_SESSION['typeProfessor'] == 'A'){?>
-		<div class="btn-add">
-			<a href="new_tipo_questao.php" class='myButton2'>Inserir Tipo de Questão</a>
-		</div>
-	<?php } ?>
+		<section class='btn-action'>
+			<div class='action'>
+				<?php if($_SESSION['typeProfessor'] == 'A'){?>
+					<div class="btn-add">
+						<a href="new_tipo_questao.php" class='myButton2'>Inserir Tipo de Quest&atilde;o</a>
+					</div>
+				<?php } ?>
+			</div>
+			<form class='action -off' method="POST">
+				<i class="fa fa-search fa-1x" aria-hidden="true"></i>
+				<input type="text" name="search">
+				<input type='submit' name="search_">
+			</form>			
+		</section>
 		<div class='table-holder'>
 			<table>
 				<tr>
@@ -92,10 +115,28 @@
 		<?php if($pages > 1 ){?>
 		<div class="pages">
 			<ul>
-				<?php for($i = 1; $i <= $pages; $i++){?>
-					<li>
-						<a href='users.php?p=<?php echo $i; ?>'><?php echo $i; ?></a>
-					</li>
+				<?php for($i = 1; $i <= $pages; $i++){ 
+					if ($i == $p) {
+						if (isset($_POST['search_']) || isset($_GET['s'])){?>
+							<li>
+								<a class='page-active' href="area.php?p=<?php echo $i; ?>&s=<?php echo $ser_btn?>"><?php echo $i; ?></a>
+							</li>
+						<?php }else{ ?>
+							<li>
+								<a class='page-active' href="area.php?p=<?php echo $i; ?>"><?php echo $i; ?></a>
+							</li>
+						<?php } ?>
+					<?php } else { 
+						if (isset($_POST['search_']) || isset($_GET['s'])){?>
+							<li>
+								<a href="area.php?p=<?php echo $i; ?>&s=<?php echo $ser_btn?>"><?php echo $i; ?></a>
+							</li>
+						<?php }else{ ?>
+							<li>
+								<a href='area.php?p=<?php echo $i; ?>'><?php echo $i; ?></a>
+							</li>
+						<?php } ?>	
+					<?php } ?>
 				<?php } ?>
 			</ul>
 		</div>

@@ -56,9 +56,6 @@
 		<fieldset>
 			<button class="myButton" type="submit" name="btn_send"> Entrar </button> 
 		</fieldset>
-		<fieldset>
-			<button class="myButton" type="submit" name="btn_new"> Cadastre-se </button> 
-		</fieldset>
 	</form>
 </div>
 </body>
