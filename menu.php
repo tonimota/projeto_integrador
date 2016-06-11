@@ -1,9 +1,10 @@
 <?php
-if (!isset($_SESSION['showMenu'])) {
+include('integracao/loginFunc.php');
+lidaBasicAuthentication ('../../portal/naoautorizado.php');
+if(!isset($_SESSION['codProfessor'])){
 	header('Location: index.php');
 }
-
- if ($_SESSION['showMenu'] == true) {?>
+if (isset($_SESSION['showMenu']) && $_SESSION['showMenu']) {?>
 
 <nav>
 	<ul>

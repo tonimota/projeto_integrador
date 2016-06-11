@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	include 'db.php';
-	if($_SESSION['typeProfessor'] != 'A'){
+	if($_SESSION['tipoProfessor'] != 'A'){
 		header('Location: users.php');
 	}
 
@@ -77,7 +77,7 @@
 					</div>
 					<input type="text" placeholder="ID Senac" name='senac_id' value='<?php echo $user['idSenac']; ?>'></input>
 				</li>
-				<?php if($_SESSION['typeProfessor'] == 'A'){?>
+				<?php if($_SESSION['tipoProfessor'] == 'A'){?>
 				<li id="button-contact-form_2">
 					<?php if($user['tipo'] == 'A'){?>
 						<input type="radio" name='type' class="tipo_up" value="A" checked>

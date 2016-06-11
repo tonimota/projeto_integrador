@@ -3,26 +3,6 @@
 
 	include 'db.php';
 
-	if(isset($_GET['response'])){
-		$response = $_GET['response'];
-		if($response != 0){
-			$msg = "Efetuado com sucesso";
-		}else{
-			$msg = "Erro ao conectar com o banco de dados";
-		}
-	}
-
-	if(isset($_GET['responseDelete'])){
-		$response = $_GET['responseDelete'];
-		if($response != 0){
-			$msg = "Exclu&iacute;do com sucesso";
-		}else{
-			$msg = "O registro esta sendo usado em outra tabela, portanto nao pode ser exclu&iacute;do";
-		}	
-	}
-
-
-
 	$pp = 20;
 
 	if(isset($_GET['p'])){
@@ -65,13 +45,7 @@
 	</header>
 	<div id='wrapper'>
 		<section class='btn-action'>
-			<div class='action'>
-				<?php if($_SESSION['typeProfessor'] == 'A'){?>
-					<div class="btn-add">
-						<a href="new_tipo_questao.php" class='myButton2'>Inserir Tipo de Quest&atilde;o</a>
-					</div>
-				<?php } ?>
-			</div>
+			
 			<form class='action -off' method="POST">
 				<i class="fa fa-search fa-1x" aria-hidden="true"></i>
 				<input type="text" name="search">
@@ -83,10 +57,6 @@
 				<tr>
 					<th>ID</th>
 					<th>Descri&ccedil;&atilde;o</th>
-					<?php if($_SESSION['typeProfessor'] == 'A'){?>
-					<th>Alterar</th>
-					<th>Excluir</th>
-					<?php } ?>
 				<tr>
 			<?php
 			
@@ -98,14 +68,7 @@
 						<td>
 							<?php echo $tipo_questao["descricao"]; ?>
 						</td>
-						<?php if($_SESSION['typeProfessor'] == 'A'){?>
-						<td>
-							<a href='update_tipo_questao.php?cod=<?php echo $tipo_questao["codTipoQuestao"] ?>'><button class='my-button2'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button></a>
-						</td>
-						<td>
-							<a href='delete_tipo_questao.php?cod=<?php echo $tipo_questao["codTipoQuestao"] ?>'><button class='my-button2'><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button></a>
-						</td>
-						<?php } ?>
+						
 					</tr>
 					
 				<?php } ?>					
@@ -146,13 +109,9 @@
 			<p><a href="documentacao_pi.pdf" target="blank_">Manual do usuário</a></p>
 		</footer>
 	</div>
-	<?php if(isset($msg)){?>
-		<div class="msg-return">
-			<?php echo "<div class='style-msg'>$msg</div>"; ?>
-		</div>
-	<?php } ?>
-	<script type="text/javascript">
-		$('.msg-return').delay(2000).fadeOut();
-	</script>
+
+	<footer>			
+	</footer>
+
 </body>
 </html>
