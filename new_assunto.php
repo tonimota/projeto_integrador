@@ -30,7 +30,7 @@
 		}
 	}
 	
-	$stmt = odbc_exec($conn, "select * from Assunto");
+	$stmt = odbc_exec($conn, "select * from Area");
 ?>
 <!DOCTYPE html>
 <html>
