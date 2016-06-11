@@ -20,7 +20,7 @@
 		    
 		   	if ($rows > 0) {
 		   		$_SESSION['codProfessor'] = $result['codProfessor'];
-				$_SESSION['typeProfessor'] = $result['tipo'];
+				$_SESSION['tipoProfessor'] = $result['tipo'];
 		   		$_SESSION['showMenu'] = true;
 				
 		   		header('Location: users.php');

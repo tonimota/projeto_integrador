@@ -84,7 +84,7 @@
 	<div id='wrapper'>
 		<section class='btn-action'>
 			<div class='action'>
-				<?php if($_SESSION['typeProfessor'] == 'A'){?>
+				<?php if($_SESSION['tipoProfessor'] == 'A'){?>
 					<div class="btn-add">
 						<a href="new_assunto.php" class='myButton2'>Inserir Assunto</a>
 					</div>
@@ -102,7 +102,7 @@
 					<th>ID</th>
 					<th>Descri&ccedil;&atilde;o</th>
 					<th>&Aacute;rea</th>
-					<?php if($_SESSION['typeProfessor'] == 'A'){?>
+					<?php if($_SESSION['tipoProfessor'] == 'A'){?>
 					<th>Alterar</th>
 					<th>Excluir</th>
 					<?php } ?>
@@ -120,7 +120,7 @@
 						<td>
 							<?php echo $assunto["codArea"]; ?>
 						</td>
-						<?php if($_SESSION['typeProfessor'] == 'A'){?>
+						<?php if($_SESSION['tipoProfessor'] == 'A'){?>
 						<td>
 							<a href='update_assunto.php?cod=<?php echo $assunto["codAssunto"] ?>&codArea=<?php echo $assunto['codArea']?>&description=<?php echo $assunto['descricao']; ?>'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
 						</td>

@@ -69,7 +69,7 @@
 	<div id='wrapper'>
 	<section class='btn-action'>
 		<div class='action'>
-			<?php if($_SESSION['typeProfessor'] == 'A'){?>
+			<?php if($_SESSION['tipoProfessor'] == 'A'){?>
 				<div class="btn-add">
 					<a href="new_user.php" class='myButton2'>Inserir Usuário</a>
 				</div>
@@ -91,7 +91,7 @@
 					<th>E-mail</th>
 					<th>Tipo</th>
 					<th>ID Senac</th>
-					<?php if($_SESSION['typeProfessor'] == 'A'){?>
+					<?php if($_SESSION['tipoProfessor'] == 'A'){?>
 					<th>Alterar</th>
 					<th>Excluir</th>
 					<?php } ?>
@@ -112,7 +112,7 @@
 						<td>
 							<?php echo $area['idSenac']; ?>
 						</td>
-						<?php if($_SESSION['typeProfessor'] == 'A'){?>
+						<?php if($_SESSION['tipoProfessor'] == 'A'){?>
 						<td>
 							<a href='update_user.php?cod=<?php echo $area["codProfessor"] ?>'><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
 						</td>

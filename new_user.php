@@ -2,7 +2,7 @@
 
 	session_start();
 	include 'db.php';
-	if($_SESSION['typeProfessor'] != 'A'){
+	if($_SESSION['tipoProfessor'] != 'A'){
 		header('Location: users.php');
 	}
 
