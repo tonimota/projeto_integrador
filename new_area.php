@@ -29,7 +29,7 @@
 		}
 	}
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Nova &Aacute;rea</title>

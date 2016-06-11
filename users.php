@@ -77,6 +77,7 @@
 				<div class="btn-add">
 					<a href="update_user.php?cod=<?php echo $_SESSION["codProfessor"] ?>" class='myButton2'>Alterar meus dados</a>
 				</div>
+
 			</div>
 			<form class='action -off' method="POST">
 				<i class="fa fa-search fa-1x" aria-hidden="true"></i>
@@ -165,9 +166,11 @@
 		</div>
 		<?php } ?>
 
+		<footer>
+			<p><a href="documentacao_pi.pdf" target="blank_">Manual do usuário</a></p>
+		</footer>
 	</div>
-	<footer>		
-	</footer>
+
 	<script type="text/javascript">
 		$('.msg-return').delay(2000).fadeOut();
 	</script>

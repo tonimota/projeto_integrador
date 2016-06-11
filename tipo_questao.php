@@ -29,7 +29,7 @@
 	
 	$pages = ceil($count/$pp);
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -104,9 +104,14 @@
 			</ul>
 		</div>
 		<?php } ?>
-		
+	
+		<footer>
+			<p><a href="documentacao_pi.pdf" target="blank_">Manual do usuário</a></p>
+		</footer>
 	</div>
+
 	<footer>			
 	</footer>
+
 </body>
 </html>

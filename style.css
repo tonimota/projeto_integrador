@@ -532,3 +532,17 @@ select {
     border: 1px solid #ccc;
     float: right;
 }
+footer {
+	height: 15px;
+	width: 100%;
+}
+footer p {
+	cursor: pointer;
+	text-align: center;
+	text-decoration: underline;
+	padding-top: 10px;
+	font-size: 12px;
+}
+footer p a {
+	color: #999;
+}
